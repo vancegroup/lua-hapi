@@ -15,6 +15,8 @@
 #ifndef INCLUDED_LuaInclude_h_GUID_a526c846_236b_4215_9036_65b3e519f08e
 #define INCLUDED_LuaInclude_h_GUID_a526c846_236b_4215_9036_65b3e519f08e
 
+#include "LuaInterface.h"
+
 LUAHAPI_BEGIN_LUA_INTERFACE
 #include <lua.h>
 LUAHAPI_END_LUA_INTERFACE

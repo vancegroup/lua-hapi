@@ -26,8 +26,8 @@
 
 LUAHAPI_BEGIN_LUA_INTERFACE
 
-	struct lua_State;
-	int LUAHAPI_API luaopen_luahapi(lua_State *L);
+struct lua_State;
+int LUAHAPI_API luaopen_luahapi(lua_State *L);
 
 LUAHAPI_END_LUA_INTERFACE
 
