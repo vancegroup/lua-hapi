@@ -1,0 +1,6 @@
+[submodule "submodules/hapi"]
+	path = submodules/hapi
+	url = git://github.com/rpavlik/hapi.git
+[submodule "submodules/h3dutil"]
+	path = submodules/h3dutil
+	url = git://github.com/rpavlik/h3dutil.git
