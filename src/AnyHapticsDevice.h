@@ -24,8 +24,8 @@
 // Standard includes
 // - none
 
-namespace AnyHapticsDevice {
-	luabind::scope bind();
+namespace HAPI {
+	class AnyHapticsDevice;
 }
 
 #endif // INCLUDED_AnyHapticsDevice_h_GUID_9f4ebfe9_58fa_4940_98a1_ad4a105a726f
