@@ -14,5 +14,11 @@ add_subdirectory(hapi/build)
 # Clean up its mess
 mark_as_advanced(HAPI_EXAMPLE_PROJECTS DCMTK_HAVE_CONFIG_H)
 
+set(HAPI_INCLUDE_DIRS
+	"${CMAKE_CURRENT_SOURCE_DIR}/hapi/include"
+	"${CMAKE_CURRENT_BINARY_DIR}/hapi/build/include/"
+	"${CMAKE_CURRENT_SOURCE_DIR}/h3dutil/H3DUtil/include"
+	"${CMAKE_CURRENT_BINARY_DIR}/hapi/build/h3dutil-build/include")
+
 # Propagate include dirs
 set(HAPI_INCLUDE_DIRS "${HAPI_INCLUDE_DIRS}" PARENT_SCOPE)
