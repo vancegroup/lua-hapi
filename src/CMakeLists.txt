@@ -2,6 +2,11 @@ include_directories(${LUABIND_INCLUDE_DIRS} ${HAPI_INCLUDE_DIRS})
 add_definitions(-DLUAHAPI_BUILDING)
 
 set(SOURCES
+	AnyHapticsDevice.cpp
+	AnyHapticsDevice.h
+	BindingFwd.h
+	HAPIHapticsDevice.cpp
+	HAPIHapticsDevice.h
 	LuaInclude.h
 	ModuleEntryPoint.cpp)
 

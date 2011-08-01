@@ -13,27 +13,19 @@
 */
 
 // Internal Includes
-#include "ModuleEntryPoint.h"
-
-#include "HAPIHapticsDevice.h"
 #include "AnyHapticsDevice.h"
 
 // Library/third-party includes
-#include <luabind/open.hpp>
+#include <luabind/class.hpp>
+#include <HAPI/AnyHapticsDevice.h>
 
 // Standard includes
 // - none
 
-
-int luaopen_luahapi(lua_State *L) {
+luabind::scope AnyHapticsDevice::bind() {
 	using namespace luabind;
-	open(L);
-	module(L, "HAPI")
-	[
-	    HAPIHapticsDevice::bind(),
-	    AnyHapticsDevice::bind(),
 
-	    scope() // trailing empty scope so we can put commas after each binding call
-	];
-	return 0;
+	return
+	    class_<HAPI::AnyHapticsDevice, HAPI::HAPIHapticsDevice>("AnyHapticsDevice")
+	    .def(constructor<>());
 }
