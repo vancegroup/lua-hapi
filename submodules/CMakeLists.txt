@@ -4,6 +4,9 @@ endif()
 
 set(H3DUTIL_SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/h3dutil/H3DUtil")
 
+# Disable finding DCMTK in H3DUtil
+set(DCMTK_config_INCLUDE_DIR "")
+
 add_subdirectory(hapi/build)
 mark_as_advanced(HAPI_EXAMPLE_PROJECTS DCMTK_HAVE_CONFIG_H)
 set(HAPI_INCLUDE_DIRS "${HAPI_INCLUDE_DIRS}" PARENT_SCOPE)
