@@ -29,12 +29,9 @@ template<> luabind::scope bind<HAPI::HAPIHapticsDevice>() {
 
 	return
 	    class_<HAPI::HAPIHapticsDevice>("HAPIHapticsDevice")
-	    /*.enum_("ErrorCode")
-	    [
-	    	value("SUCCESS", HAPI::HAPIHapticsDevice::SUCCESS),
-	    	value("NOT_INITIALIZED", HAPI::HAPIHapticsDevice::NOT_INITIALIZED),
-	    	value("NOT_ENABLED", HAPI::HAPIHapticsDevice::NOT_ENABLED),
-	    	value("FAIL", HAPI::HAPIHapticsDevice::FAIL)
-	    ]*/
-	    .def("initDevice", &HAPI::HAPIHapticsDevice::initDevice);
+	    .def("initDevice", &HAPI::HAPIHapticsDevice::initDevice)
+	    .def("enableDevice", &HAPI::HAPIHapticsDevice::enableDevice)
+	    .def("disableDevice", &HAPI::HAPIHapticsDevice::disableDevice)
+	    .def("releaseDevice", &HAPI::HAPIHapticsDevice::releaseDevice)
+	    ;
 }
