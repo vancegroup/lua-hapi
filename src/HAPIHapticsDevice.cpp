@@ -20,7 +20,6 @@
 
 // Library/third-party includes
 #include <luabind/class.hpp>
-#include <luabind/tag_function.hpp>
 #include <HAPI/HAPIHapticsDevice.h>
 
 // Standard includes
@@ -43,7 +42,7 @@ template<> luabind::scope getLuaBinding<HAPI::HAPIHapticsDevice>() {
 	return
 	    class_<HAPI::HAPIHapticsDevice>("HAPIHapticsDevice")
 	    .def("initDevice", &HAPI::HAPIHapticsDevice::initDevice)
-	    .def("initDevice", (void (HAPI::HAPIHapticsDevice::*)())(&HAPI::HAPIHapticsDevice::initDevice))
+	    .def("initDevice", (void (HAPI::HAPIHapticsDevice::*)())&HAPI::HAPIHapticsDevice::initDevice)
 
 	    .def("enableDevice", &HAPI::HAPIHapticsDevice::enableDevice)
 
@@ -52,27 +51,27 @@ template<> luabind::scope getLuaBinding<HAPI::HAPIHapticsDevice>() {
 	    .def("releaseDevice", &HAPI::HAPIHapticsDevice::releaseDevice)
 
 	    .def("setHapticsRenderer", &HAPI::HAPIHapticsDevice::setHapticsRenderer)
-	    .def("setHapticsRenderer", (void (HAPI::HAPIHapticsDevice::*)(HAPI::HAPIHapticsRenderer *))(&HAPI::HAPIHapticsDevice::setHapticsRenderer))
+	    .def("setHapticsRenderer", (void (HAPI::HAPIHapticsDevice::*)(HAPI::HAPIHapticsRenderer *))&HAPI::HAPIHapticsDevice::setHapticsRenderer)
 
 
 	    .def("addShape", &HAPI::HAPIHapticsDevice::addShape)
-	    .def("addShape", (void (HAPI::HAPIHapticsDevice::*)(HAPI::HAPIHapticShape *))(&HAPI::HAPIHapticsDevice::addShape))
+	    .def("addShape", (void (HAPI::HAPIHapticsDevice::*)(HAPI::HAPIHapticShape *))&HAPI::HAPIHapticsDevice::addShape)
 
 	    .def("removeShape", &HAPI::HAPIHapticsDevice::removeShape)
-	    .def("removeShape", (void (HAPI::HAPIHapticsDevice::*)(HAPI::HAPIHapticShape *))(&HAPI::HAPIHapticsDevice::removeShape))
+	    .def("removeShape", (void (HAPI::HAPIHapticsDevice::*)(HAPI::HAPIHapticShape *))&HAPI::HAPIHapticsDevice::removeShape)
 
 	    .def("clearShapes", &HAPI::HAPIHapticsDevice::clearShapes)
-	    .def("clearShapes", (void (HAPI::HAPIHapticsDevice::*)())(&HAPI::HAPIHapticsDevice::clearShapes))
+	    .def("clearShapes", (void (HAPI::HAPIHapticsDevice::*)())&HAPI::HAPIHapticsDevice::clearShapes)
 
 
 	    .def("addEffect", &HAPI::HAPIHapticsDevice::addEffect)
-	    .def("addEffect", (void (HAPI::HAPIHapticsDevice::*)(HAPI::HAPIForceEffect *))(&HAPI::HAPIHapticsDevice::addEffect))
+	    .def("addEffect", (void (HAPI::HAPIHapticsDevice::*)(HAPI::HAPIForceEffect *))&HAPI::HAPIHapticsDevice::addEffect)
 
 	    .def("removeEffect", &HAPI::HAPIHapticsDevice::removeEffect)
-	    .def("removeEffect", (void (HAPI::HAPIHapticsDevice::*)(HAPI::HAPIForceEffect *))(&HAPI::HAPIHapticsDevice::removeEffect))
+	    .def("removeEffect", (void (HAPI::HAPIHapticsDevice::*)(HAPI::HAPIForceEffect *))&HAPI::HAPIHapticsDevice::removeEffect)
 
 	    .def("clearEffects", &HAPI::HAPIHapticsDevice::clearEffects)
-	    .def("clearEffects", (void (HAPI::HAPIHapticsDevice::*)())(&HAPI::HAPIHapticsDevice::clearEffects))
+	    .def("clearEffects", (void (HAPI::HAPIHapticsDevice::*)())&HAPI::HAPIHapticsDevice::clearEffects)
 
 
 	    .def("getButtonStatus", &getButtonStatus0)
