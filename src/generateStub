@@ -1,0 +1,135 @@
+#!/bin/bash
+
+# Configure as you see fit - make sure to indent by a single tab.
+
+AUTHORLINES=$(cat <<EOS
+	Ryan Pavlik
+	<rpavlik@iastate.edu> and <abiryan@ryand.net>
+	http://academic.cleardefinition.com/
+	Iowa State University Virtual Reality Applications Center
+	Human-Computer Interaction Graduate Program
+EOS
+)
+
+CLASSES="AnyHapticsDevice \
+	DepthMapSurface \
+	DeviceLog \
+	EntactHapticsDevice \
+	FalconHapticsDevice \
+	FeedbackBufferCollector \
+	ForceDimensionHapticsDevice \
+	FrictionSurface \
+	GodObjectRenderer \
+	HAPIForceEffect \
+	HAPIFrictionSurface \
+	HAPIFunctionObject \
+	HAPIGLShape \
+	HAPIHapticObject \
+	HAPIHapticsDevice \
+	HAPIHapticShape \
+	HAPIHapticsRenderer \
+	HAPIProxyBasedRenderer \
+	HAPIShapeRenderOptions \
+	HAPISurfaceObject \
+	HAPIVariableDepthSurface \
+	HapticForceField \
+	HapticLineSet \
+	HapticMasterDevice \
+	HapticPointSet \
+	HapticPositionFunctionEffect \
+	HapticPrimitive \
+	HapticPrimitiveSet \
+	HapticPrimitiveTree \
+	HapticRotationalSpring \
+	HapticShapeConstraint \
+	HapticSpring \
+	HapticTexturesSurface \
+	HapticTimeFunctionEffect \
+	HapticTriangleSet \
+	HapticTriangleTree \
+	HapticViscosity \
+	HaptikHapticsDevice \
+	HaptionHapticsDevice \
+	HLThread \
+	ImageInterfaceObject \
+	IntersectionInfo \
+	MLHIHapticsDevice \
+	NiFalconHapticsDevice \
+	ParsedFunction \
+	PhantomHapticsDevice \
+	PlaneConstraint \
+	QuanserHapticsDevice \
+	RuspiniRenderer \
+	SimballHapticsDevice"
+
+for filebase in ${CLASSES}; do
+
+	echo "${filebase}.cpp"
+	if [ ! -f "${filebase}.cpp" ]; then
+
+		cat > "${filebase}.cpp" <<EOS
+/**
+	@file
+	@brief Implementation
+
+	@date `date +%Y`
+
+	@author
+${AUTHORLINES}
+*/
+
+// Internal Includes
+#include "${filebase}.h"
+
+// Library/third-party includes
+#include <luabind/class.hpp>
+
+// Standard includes
+// - none
+
+template<> luabind::scope bind<HAPI::${filebase}>() {
+	using namespace luabind;
+
+	return
+		class_<HAPI::${filebase}>("${filebase}");
+}
+
+EOS
+	fi
+
+	echo "${filebase}.h"
+	if [ ! -f "${filebase}.h" ]; then
+		def=$(echo "INCLUDED_${filebase}_h_GUID_$(uuidgen)" | sed 's/[-. /]/_/g')
+
+		cat > "${filebase}.h" <<EOS
+/** @file
+	@brief Header
+
+	@date `date +%Y`
+
+	@author
+${AUTHORLINES}
+*/
+
+#pragma once
+#ifndef ${def}
+#define ${def}
+
+// Internal Includes
+#include "BindingFwd.h"
+
+// Library/third-party includes
+// - none
+
+// Standard includes
+// - none
+
+namespace HAPI {
+	class ${filebase};
+}
+
+#endif // $def
+EOS
+	fi
+
+done
