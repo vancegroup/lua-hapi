@@ -30,7 +30,7 @@ int luaopen_luahapi(lua_State *L) {
 	open(L);
 	module(L, "HAPI")
 	[
-		bindVector(),
+	    bindVector(),
 	    bind<HAPI::HAPIHapticsDevice>(),
 
 	    scope() // trailing empty scope so we can put commas after each binding call
