@@ -11,6 +11,8 @@ function vector_verification(constructor, dimension)
 
 	local u = constructor()
 	local v = constructor(unpack(args1))
+	local q = constructor(unpack(args2))
+
 	assert_equal(constructor().dimension, dimension)
 	assert_equal(constructor(unpack(args1)).dimension, dimension)
 	assert_equal(constructor(unpack(args2)).dimension, dimension)
@@ -23,9 +25,17 @@ function vector_verification(constructor, dimension)
 	assert_equal(constructor(), constructor())
 	assert_equal(constructor(unpack(args1)), constructor(unpack(args1)), "identically-initialized vectors should match")
 	assert_equal(constructor(unpack(args2)), constructor(unpack(args2)), "identically-initialized vectors should match")
-	--[[
+
 	assert_equal(v, constructor(v), "copy-constructed vectors should match")
-	]]
+
+	assert_string(tostring(v))
+	assert_string(tostring(v + q))
+	assert_equal(v + q, q + v)
+
+	assert_equal((v + q) - q, v)
+
+	assert_number(v * q)
+	assert_equal(v * 1, v)
 end
 
 function vector_verification_with_length(constructor, dimension)
