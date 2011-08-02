@@ -11,6 +11,12 @@
 	Human-Computer Interaction Graduate Program
 */
 
+//          Copyright Iowa State University 2011.
+// Distributed under the Boost Software License, Version 1.0.
+//    (See accompanying file LICENSE_1_0.txt or copy at
+//          http://www.boost.org/LICENSE_1_0.txt)
+
+
 #pragma once
 #ifndef INCLUDED_ModuleEntryPoint_h_GUID_8690c734_bdd8_45f8_8401_87c948f4090c
 #define INCLUDED_ModuleEntryPoint_h_GUID_8690c734_bdd8_45f8_8401_87c948f4090c
