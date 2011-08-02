@@ -15,6 +15,7 @@
 // Internal Includes
 #include "ModuleEntryPoint.h"
 
+#include "bind_h3dutil/Vector.h"
 #include "HAPIHapticsDevice.h"
 
 // Library/third-party includes
@@ -29,6 +30,7 @@ int luaopen_luahapi(lua_State *L) {
 	open(L);
 	module(L, "HAPI")
 	[
+		bindVector(),
 	    bind<HAPI::HAPIHapticsDevice>(),
 
 	    scope() // trailing empty scope so we can put commas after each binding call
