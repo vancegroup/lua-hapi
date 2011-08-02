@@ -23,7 +23,7 @@
 // Standard includes
 // - none
 
-template<> luabind::scope bind<HAPI::GodObjectRenderer>() {
+template<> luabind::scope getLuaBinding<HAPI::GodObjectRenderer>() {
 	using namespace luabind;
 
 	return

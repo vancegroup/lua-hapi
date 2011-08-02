@@ -23,7 +23,7 @@
 // Standard includes
 // - none
 
-template<> luabind::scope bind<HAPI::PlaneConstraint>() {
+template<> luabind::scope getLuaBinding<HAPI::PlaneConstraint>() {
 	using namespace luabind;
 
 	return

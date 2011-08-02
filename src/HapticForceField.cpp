@@ -23,7 +23,7 @@
 // Standard includes
 // - none
 
-template<> luabind::scope bind<HAPI::HapticForceField>() {
+template<> luabind::scope getLuaBinding<HAPI::HapticForceField>() {
 	using namespace luabind;
 
 	return

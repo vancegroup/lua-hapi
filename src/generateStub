@@ -89,7 +89,7 @@ ${AUTHORLINES}
 // Standard includes
 // - none
 
-template<> luabind::scope bind<HAPI::${filebase}>() {
+template<> luabind::scope getLuaBinding<HAPI::${filebase}>() {
 	using namespace luabind;
 
 	return

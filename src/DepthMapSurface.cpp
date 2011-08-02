@@ -23,7 +23,7 @@
 // Standard includes
 // - none
 
-template<> luabind::scope bind<HAPI::DepthMapSurface>() {
+template<> luabind::scope getLuaBinding<HAPI::DepthMapSurface>() {
 	using namespace luabind;
 
 	return

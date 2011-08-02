@@ -23,7 +23,7 @@
 // Standard includes
 // - none
 
-template<> luabind::scope bind<HAPI::HapticViscosity>() {
+template<> luabind::scope getLuaBinding<HAPI::HapticViscosity>() {
 	using namespace luabind;
 
 	return

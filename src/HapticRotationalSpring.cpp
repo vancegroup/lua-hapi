@@ -23,7 +23,7 @@
 // Standard includes
 // - none
 
-template<> luabind::scope bind<HAPI::HapticRotationalSpring>() {
+template<> luabind::scope getLuaBinding<HAPI::HapticRotationalSpring>() {
 	using namespace luabind;
 
 	return

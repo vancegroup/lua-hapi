@@ -23,7 +23,7 @@
 // Standard includes
 // - none
 
-template<> luabind::scope bind<HAPI::DeviceLog>() {
+template<> luabind::scope getLuaBinding<HAPI::DeviceLog>() {
 	using namespace luabind;
 
 	return

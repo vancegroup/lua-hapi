@@ -23,7 +23,7 @@
 // Standard includes
 // - none
 
-template<> luabind::scope bind<HAPI::RuspiniRenderer>() {
+template<> luabind::scope getLuaBinding<HAPI::RuspiniRenderer>() {
 	using namespace luabind;
 
 	return

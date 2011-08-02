@@ -23,7 +23,7 @@
 // Standard includes
 // - none
 
-template<> luabind::scope bind<HAPI::HapticTexturesSurface>() {
+template<> luabind::scope getLuaBinding<HAPI::HapticTexturesSurface>() {
 	using namespace luabind;
 
 	return

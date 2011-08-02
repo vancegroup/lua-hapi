@@ -23,7 +23,7 @@
 // Standard includes
 // - none
 
-template<> luabind::scope bind<HAPI::ParsedFunction>() {
+template<> luabind::scope getLuaBinding<HAPI::ParsedFunction>() {
 	using namespace luabind;
 
 	return

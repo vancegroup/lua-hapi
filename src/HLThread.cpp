@@ -23,7 +23,7 @@
 // Standard includes
 // - none
 
-template<> luabind::scope bind<HAPI::HLThread>() {
+template<> luabind::scope getLuaBinding<HAPI::HLThread>() {
 	using namespace luabind;
 
 	return

@@ -23,7 +23,7 @@
 // Standard includes
 // - none
 
-template<> luabind::scope bind<HAPI::HapticTimeFunctionEffect>() {
+template<> luabind::scope getLuaBinding<HAPI::HapticTimeFunctionEffect>() {
 	using namespace luabind;
 
 	return

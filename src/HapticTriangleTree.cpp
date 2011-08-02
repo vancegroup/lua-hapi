@@ -23,7 +23,7 @@
 // Standard includes
 // - none
 
-template<> luabind::scope bind<HAPI::HapticTriangleTree>() {
+template<> luabind::scope getLuaBinding<HAPI::HapticTriangleTree>() {
 	using namespace luabind;
 
 	return

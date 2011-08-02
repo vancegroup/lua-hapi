@@ -23,7 +23,7 @@
 // Standard includes
 // - none
 
-template<> luabind::scope bind<HAPI::ImageInterfaceObject>() {
+template<> luabind::scope getLuaBinding<HAPI::ImageInterfaceObject>() {
 	using namespace luabind;
 
 	return

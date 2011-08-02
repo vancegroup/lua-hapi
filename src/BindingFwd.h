@@ -25,6 +25,6 @@
 // - none
 
 template<typename T>
-luabind::scope bind();
+luabind::scope getLuaBinding();
 
 #endif // INCLUDED_BindingFwd_h_GUID_fe617b29_8694_462f_866d_76c72adadf0d

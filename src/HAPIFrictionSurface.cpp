@@ -23,7 +23,7 @@
 // Standard includes
 // - none
 
-template<> luabind::scope bind<HAPI::HAPIFrictionSurface>() {
+template<> luabind::scope getLuaBinding<HAPI::HAPIFrictionSurface>() {
 	using namespace luabind;
 
 	return

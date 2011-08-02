@@ -23,7 +23,7 @@
 // Standard includes
 // - none
 
-template<> luabind::scope bind<HAPI::IntersectionInfo>() {
+template<> luabind::scope getLuaBinding<HAPI::IntersectionInfo>() {
 	using namespace luabind;
 
 	return

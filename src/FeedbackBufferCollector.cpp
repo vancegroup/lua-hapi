@@ -23,7 +23,7 @@
 // Standard includes
 // - none
 
-template<> luabind::scope bind<HAPI::FeedbackBufferCollector>() {
+template<> luabind::scope getLuaBinding<HAPI::FeedbackBufferCollector>() {
 	using namespace luabind;
 
 	return

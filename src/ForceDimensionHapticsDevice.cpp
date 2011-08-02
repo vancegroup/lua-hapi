@@ -23,7 +23,7 @@
 // Standard includes
 // - none
 
-template<> luabind::scope bind<HAPI::ForceDimensionHapticsDevice>() {
+template<> luabind::scope getLuaBinding<HAPI::ForceDimensionHapticsDevice>() {
 	using namespace luabind;
 
 	return

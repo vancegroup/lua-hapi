@@ -24,11 +24,11 @@
 // Standard includes
 // - none
 
-template<> luabind::scope bind<HAPI::HAPIProxyBasedRenderer>() {
+template<> luabind::scope getLuaBinding<HAPI::HAPIProxyBasedRenderer>() {
 	using namespace luabind;
 
 	return
 	    class_<HAPI::HAPIProxyBasedRenderer, HAPI::HAPIHapticsRenderer>("HAPIProxyBasedRenderer"),
-	    bind<HAPI::GodObjectRenderer>();
+	    getLuaBinding<HAPI::GodObjectRenderer>();
 }
 

@@ -23,7 +23,7 @@
 // Standard includes
 // - none
 
-template<> luabind::scope bind<HAPI::HAPIHapticObject>() {
+template<> luabind::scope getLuaBinding<HAPI::HAPIHapticObject>() {
 	using namespace luabind;
 
 	return

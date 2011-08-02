@@ -23,7 +23,7 @@
 // Standard includes
 // - none
 
-template<> luabind::scope bind<HAPI::HAPIShapeRenderOptions>() {
+template<> luabind::scope getLuaBinding<HAPI::HAPIShapeRenderOptions>() {
 	using namespace luabind;
 
 	return

@@ -23,7 +23,7 @@
 // Standard includes
 // - none
 
-template<> luabind::scope bind<HAPI::HAPIFunctionObject>() {
+template<> luabind::scope getLuaBinding<HAPI::HAPIFunctionObject>() {
 	using namespace luabind;
 
 	return

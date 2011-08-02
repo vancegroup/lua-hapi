@@ -23,7 +23,7 @@
 // Standard includes
 // - none
 
-template<> luabind::scope bind<HAPI::HAPIForceEffect>() {
+template<> luabind::scope getLuaBinding<HAPI::HAPIForceEffect>() {
 	using namespace luabind;
 
 	return

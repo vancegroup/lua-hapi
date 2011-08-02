@@ -26,7 +26,7 @@
 // Standard includes
 // - none
 
-template<> luabind::scope bind<HAPI::HAPIHapticsDevice>() {
+template<> luabind::scope getLuaBinding<HAPI::HAPIHapticsDevice>() {
 	using namespace luabind;
 
 	return
@@ -63,6 +63,6 @@ template<> luabind::scope bind<HAPI::HAPIHapticsDevice>() {
 	    .def("clearEffects", &HAPI::HAPIHapticsDevice::clearEffects)
 	    .def("clearEffects", (void (HAPI::HAPIHapticsDevice::*)())(&HAPI::HAPIHapticsDevice::clearEffects))
 	    ,
-	    bind<HAPI::AnyHapticsDevice>()
+	    getLuaBinding<HAPI::AnyHapticsDevice>()
 	    ;
 }
