@@ -39,7 +39,8 @@ struct VectorBindingBase : public luabind::class_<T> {
 			using namespace luabind;
 
 			(*this)
-			.def(constructor<>())
+			.def(constructor<>()) // default constructor
+			.def(constructor<T const&>()) // copy constructor
 			.property("dimension", &VectorBindingBase::getDimension)
 			.def(const_self == const_self)
 			.def(const_self + const_self)
