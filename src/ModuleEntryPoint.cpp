@@ -17,6 +17,7 @@
 
 #include "bind_h3dutil/Vector.h"
 #include "HAPIHapticsDevice.h"
+#include "HAPIHapticsRenderer.h"
 
 // Library/third-party includes
 #include <luabind/open.hpp>
@@ -32,6 +33,7 @@ int luaopen_luahapi(lua_State *L) {
 	[
 	    bindVector(),
 	    bind<HAPI::HAPIHapticsDevice>(),
+	    bind<HAPI::HAPIHapticsRenderer>(),
 
 	    scope() // trailing empty scope so we can put commas after each binding call
 	];
