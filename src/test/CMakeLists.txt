@@ -1,4 +1,5 @@
 set(LUATESTS
+	devicelog
 	module
 	vector)
 set(LUA_COMMAND lua )
