@@ -124,3 +124,5 @@ set(H3DUTIL_BINDING
 add_library(luahapi MODULE ${SOURCES} ${API} ${HAPI_BINDING} ${H3DUTIL_BINDING})
 set_property(TARGET luahapi PROPERTY PREFIX "")
 target_link_libraries(luahapi ${LUABIND_LIBRARIES} HAPI)
+
+add_subdirectory(test)
