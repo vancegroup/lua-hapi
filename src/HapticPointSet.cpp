@@ -18,6 +18,8 @@
 // Library/third-party includes
 #include <luabind/class.hpp>
 
+#include <HAPI/HapticPointSet.h>
+
 // Standard includes
 // - none
 

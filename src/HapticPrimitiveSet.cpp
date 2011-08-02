@@ -18,6 +18,8 @@
 // Library/third-party includes
 #include <luabind/class.hpp>
 
+#include <HAPI/HapticPrimitiveSet.h>
+
 // Standard includes
 // - none
 

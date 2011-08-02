@@ -18,6 +18,8 @@
 // Library/third-party includes
 #include <luabind/class.hpp>
 
+#include <HAPI/HAPIFrictionSurface.h>
+
 // Standard includes
 // - none
 

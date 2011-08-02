@@ -18,6 +18,8 @@
 // Library/third-party includes
 #include <luabind/class.hpp>
 
+#include <HAPI/HapticPositionFunctionEffect.h>
+
 // Standard includes
 // - none
 

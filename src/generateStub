@@ -84,6 +84,8 @@ ${AUTHORLINES}
 // Library/third-party includes
 #include <luabind/class.hpp>
 
+#include <HAPI/${filebase}.h>
+
 // Standard includes
 // - none
 

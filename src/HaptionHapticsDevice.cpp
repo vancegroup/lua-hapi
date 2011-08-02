@@ -18,6 +18,8 @@
 // Library/third-party includes
 #include <luabind/class.hpp>
 
+#include <HAPI/HaptionHapticsDevice.h>
+
 // Standard includes
 // - none
 
