@@ -14,6 +14,7 @@
 
 // Internal Includes
 #include "HAPIForceEffect.h"
+#include "DeviceLog.h"
 
 // Library/third-party includes
 #include <luabind/class.hpp>
@@ -27,6 +28,17 @@ template<> luabind::scope getLuaBinding<HAPI::HAPIForceEffect>() {
 	using namespace luabind;
 
 	return
-	    class_<HAPI::HAPIForceEffect>("HAPIForceEffect");
+	    class_<HAPI::HAPIForceEffect>("HAPIForceEffect")
+	    , getLuaBinding<HAPI::DeviceLog>()
+	    /*
+	    ,getLuaBinding<HAPI::HapticForceField>()
+	    ,getLuaBinding<HAPI::PositionFunctionEffect>()
+	    ,getLuaBinding<HAPI::HapticRotationalSpring>()
+	    ,getLuaBinding<HAPI::HapticShapeConstraint>()
+	    ,getLuaBinding<HAPI::HapticSpring>()
+	    ,getLuaBinding<HAPI::HapticTimeFunctionEffect>()
+	    ,getLuaBinding<HAPI::HapticViscosity>()
+	    */
+	    ;
 }
 

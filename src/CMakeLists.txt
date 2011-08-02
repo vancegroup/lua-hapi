@@ -15,8 +15,8 @@ set(HAPI_BINDING
 	AnyHapticsDevice.h
 #	DepthMapSurface.cpp
 #	DepthMapSurface.h
-#	DeviceLog.cpp
-#	DeviceLog.h
+	DeviceLog.cpp
+	DeviceLog.h
 #	EntactHapticsDevice.cpp
 #	EntactHapticsDevice.h
 #	FalconHapticsDevice.cpp
@@ -29,8 +29,8 @@ set(HAPI_BINDING
 #	FrictionSurface.h
 	GodObjectRenderer.cpp
 	GodObjectRenderer.h
-#	HAPIForceEffect.cpp
-#	HAPIForceEffect.h
+	HAPIForceEffect.cpp
+	HAPIForceEffect.h
 #	HAPIFrictionSurface.cpp
 #	HAPIFrictionSurface.h
 #	HAPIFunctionObject.cpp

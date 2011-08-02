@@ -18,6 +18,7 @@
 #include "bind_h3dutil/Vector.h"
 #include "HAPIHapticsDevice.h"
 #include "HAPIHapticsRenderer.h"
+#include "HAPIForceEffect.h"
 
 // Library/third-party includes
 #include <luabind/open.hpp>
@@ -34,6 +35,7 @@ int luaopen_luahapi(lua_State *L) {
 	    bindVector(),
 	    getLuaBinding<HAPI::HAPIHapticsDevice>(),
 	    getLuaBinding<HAPI::HAPIHapticsRenderer>(),
+	    getLuaBinding<HAPI::HAPIForceEffect>(),
 
 	    scope() // trailing empty scope so we can put commas after each binding call
 	];
