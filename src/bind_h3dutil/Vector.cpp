@@ -46,6 +46,7 @@ struct VectorBindingBase : public luabind::class_<T> {
 			.def(const_self + const_self)
 			.def(const_self - const_self)
 			.def(const_self * const_self)
+			.def("dotProduct", &HAPI::Vec3::dotProduct)
 			.def(const_self * other<Scalar>())
 			.def(- const_self)
 			.def(tostring(const_self));
@@ -84,6 +85,7 @@ luabind::scope bindVector() {
 	    ,
 	    VectorBinding<HAPI::Vec3>("Vec3")
 	    .def(constructor<Scalar, Scalar, Scalar>())
+	    .def("crossProduct", &HAPI::Vec3::crossProduct)
 	    .def_readwrite("x", &HAPI::Vec3::x)
 	    .def_readwrite("y", &HAPI::Vec3::y)
 	    .def_readwrite("z", &HAPI::Vec3::z)
