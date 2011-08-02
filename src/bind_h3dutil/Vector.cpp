@@ -79,11 +79,20 @@ luabind::scope bindVector() {
 	return
 	    VectorBinding<HAPI::Vec2>("Vec2")
 	    .def(constructor<Scalar, Scalar>())
+	    .def_readwrite("x", &HAPI::Vec2::x)
+	    .def_readwrite("y", &HAPI::Vec2::y)
 	    ,
 	    VectorBinding<HAPI::Vec3>("Vec3")
 	    .def(constructor<Scalar, Scalar, Scalar>())
+	    .def_readwrite("x", &HAPI::Vec3::x)
+	    .def_readwrite("y", &HAPI::Vec3::y)
+	    .def_readwrite("z", &HAPI::Vec3::z)
 	    ,
 	    VectorBinding<HAPI::Vec4>("Vec4")
 	    .def(constructor<Scalar, Scalar, Scalar, Scalar>())
+	    .def_readwrite("x", &HAPI::Vec4::x)
+	    .def_readwrite("y", &HAPI::Vec4::y)
+	    .def_readwrite("z", &HAPI::Vec4::z)
+	    .def_readwrite("w", &HAPI::Vec4::w)
 	    ;
 }
