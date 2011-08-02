@@ -12,16 +12,18 @@
 */
 
 #pragma once
-#ifndef INCLUDED_Vec2_h_GUID_da2863c0_b6d5_4dd0_b5c2_82f7857ce87b
-#define INCLUDED_Vec2_h_GUID_da2863c0_b6d5_4dd0_b5c2_82f7857ce87b
+#ifndef INCLUDED_Vector_h_GUID_c5be23bd_567b_41b1_b822_86e769b1897d
+#define INCLUDED_Vector_h_GUID_c5be23bd_567b_41b1_b822_86e769b1897d
 
 // Internal Includes
 // - none
 
 // Library/third-party includes
-// - none
+#include <luabind/scope.hpp>
 
 // Standard includes
 // - none
 
-#endif // INCLUDED_Vec2_h_GUID_da2863c0_b6d5_4dd0_b5c2_82f7857ce87b
+luabind::scope bindVector();
+
+#endif // INCLUDED_Vector_h_GUID_c5be23bd_567b_41b1_b822_86e769b1897d

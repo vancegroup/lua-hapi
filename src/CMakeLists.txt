@@ -116,8 +116,8 @@ set(HAPI_BINDING
 set(H3DUTIL_BINDING
 	bind_h3dutil/VectorTraits.h
 	bind_h3dutil/VectorOf.h
-	bind_h3dutil/Vec2.h
-	bind_h3dutil/Vec2.cpp
+	bind_h3dutil/Vector.h
+	bind_h3dutil/Vector.cpp
 	bind_h3dutil/VectorFwd.h
 )
 
