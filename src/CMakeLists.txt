@@ -27,8 +27,8 @@ set(HAPI_BINDING
 #	ForceDimensionHapticsDevice.h
 #	FrictionSurface.cpp
 #	FrictionSurface.h
-#	GodObjectRenderer.cpp
-#	GodObjectRenderer.h
+	GodObjectRenderer.cpp
+	GodObjectRenderer.h
 #	HAPIForceEffect.cpp
 #	HAPIForceEffect.h
 #	HAPIFrictionSurface.cpp
