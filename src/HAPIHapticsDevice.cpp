@@ -16,6 +16,8 @@
 #include "HAPIHapticsDevice.h"
 #include "HAPIHapticsDeviceErrorCode.h"
 
+#include "AnyHapticsDevice.h"
+
 // Library/third-party includes
 #include <luabind/class.hpp>
 #include <luabind/tag_function.hpp>
@@ -33,5 +35,7 @@ template<> luabind::scope bind<HAPI::HAPIHapticsDevice>() {
 	    .def("enableDevice", &HAPI::HAPIHapticsDevice::enableDevice)
 	    .def("disableDevice", &HAPI::HAPIHapticsDevice::disableDevice)
 	    .def("releaseDevice", &HAPI::HAPIHapticsDevice::releaseDevice)
+	    ,
+	    bind<HAPI::AnyHapticsDevice>()
 	    ;
 }

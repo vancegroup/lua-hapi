@@ -16,7 +16,6 @@
 #include "ModuleEntryPoint.h"
 
 #include "HAPIHapticsDevice.h"
-#include "AnyHapticsDevice.h"
 
 // Library/third-party includes
 #include <luabind/open.hpp>
@@ -31,7 +30,6 @@ int luaopen_luahapi(lua_State *L) {
 	module(L, "HAPI")
 	[
 	    bind<HAPI::HAPIHapticsDevice>(),
-	    bind<HAPI::AnyHapticsDevice>(),
 
 	    scope() // trailing empty scope so we can put commas after each binding call
 	];
