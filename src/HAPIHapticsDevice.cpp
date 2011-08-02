@@ -62,6 +62,15 @@ template<> luabind::scope getLuaBinding<HAPI::HAPIHapticsDevice>() {
 
 	    .def("clearEffects", &HAPI::HAPIHapticsDevice::clearEffects)
 	    .def("clearEffects", (void (HAPI::HAPIHapticsDevice::*)())(&HAPI::HAPIHapticsDevice::clearEffects))
+
+
+	    //.def("getButtonStatus", (void (HAPI::HAPIHapticsDevice::*)())(HAPI::HAPIHapticsDevice::getButtonStatus))
+	    //.def("getButtonStatus", (void (HAPI::HAPIHapticsDevice::*)(unsigned int))(HAPI::HAPIHapticsDevice::getButtonStatus))
+
+	    .def("getPosition", &HAPI::HAPIHapticsDevice::getPosition)
+	    .def("getLastPosition", &HAPI::HAPIHapticsDevice::getLastPosition)
+
+	    .def("getLastErrorMsg", &HAPI::HAPIHapticsDevice::getLastErrorMsg)
 	    ,
 	    getLuaBinding<HAPI::AnyHapticsDevice>()
 	    ;
