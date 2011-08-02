@@ -35,6 +35,9 @@ template<> luabind::scope bind<HAPI::HAPIHapticsDevice>() {
 	    .def("enableDevice", &HAPI::HAPIHapticsDevice::enableDevice)
 	    .def("disableDevice", &HAPI::HAPIHapticsDevice::disableDevice)
 	    .def("releaseDevice", &HAPI::HAPIHapticsDevice::releaseDevice)
+	    .def("setHapticsRenderer", &HAPI::HAPIHapticsDevice::setHapticsRenderer)
+	    //.def("setHapticsRenderer", tag_function<void (HAPI::HAPIHapticsDevice *, HAPI::HAPIHapticsRenderer *)>(boost::bind(&HAPI::HAPIHapticsDevice::setHapticsRenderer, _1, _2)))
+	    .def("setHapticsRenderer", (void (HAPI::HAPIHapticsDevice::*)(HAPI::HAPIHapticsRenderer *))(&HAPI::HAPIHapticsDevice::setHapticsRenderer))
 	    ,
 	    bind<HAPI::AnyHapticsDevice>()
 	    ;

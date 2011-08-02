@@ -14,9 +14,12 @@
 
 // Internal Includes
 #include "HAPIProxyBasedRenderer.h"
+#include "GodObjectRenderer.h"
 
 // Library/third-party includes
 #include <luabind/class.hpp>
+
+#include <HAPI/HAPIProxyBasedRenderer.h>
 
 // Standard includes
 // - none
@@ -25,6 +28,7 @@ template<> luabind::scope bind<HAPI::HAPIProxyBasedRenderer>() {
 	using namespace luabind;
 
 	return
-	    class_<HAPI::HAPIProxyBasedRenderer>("HAPIProxyBasedRenderer");
+	    class_<HAPI::HAPIProxyBasedRenderer, HAPI::HAPIHapticsRenderer>("HAPIProxyBasedRenderer"),
+	    bind<HAPI::GodObjectRenderer>();
 }
 

@@ -43,10 +43,10 @@ set(HAPI_BINDING
 	HAPIHapticsDevice.h
 #	HAPIHapticShape.cpp
 #	HAPIHapticShape.h
-#	HAPIHapticsRenderer.cpp
-#	HAPIHapticsRenderer.h
-#	HAPIProxyBasedRenderer.cpp
-#	HAPIProxyBasedRenderer.h
+	HAPIHapticsRenderer.cpp
+	HAPIHapticsRenderer.h
+	HAPIProxyBasedRenderer.cpp
+	HAPIProxyBasedRenderer.h
 #	HAPIShapeRenderOptions.cpp
 #	HAPIShapeRenderOptions.h
 #	HAPISurfaceObject.cpp

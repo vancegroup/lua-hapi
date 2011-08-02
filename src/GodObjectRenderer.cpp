@@ -16,8 +16,17 @@
 #include "GodObjectRenderer.h"
 
 // Library/third-party includes
-// - none
+#include <luabind/class.hpp>
+
+#include <HAPI/GodObjectRenderer.h>
 
 // Standard includes
 // - none
+
+template<> luabind::scope bind<HAPI::GodObjectRenderer>() {
+	using namespace luabind;
+
+	return
+	    class_<HAPI::GodObjectRenderer, HAPI::HAPIProxyBasedRenderer>("GodObjectRenderer");
+}
 

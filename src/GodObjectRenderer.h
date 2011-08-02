@@ -12,11 +12,11 @@
 */
 
 #pragma once
-#ifndef INCLUDED_GodObjectRenderer_h_GUID_e33b000a_d86c_46cd_b12d_5bbd661c885f
-#define INCLUDED_GodObjectRenderer_h_GUID_e33b000a_d86c_46cd_b12d_5bbd661c885f
+#ifndef INCLUDED_GodObjectRenderer_h_GUID_cb87c267_d1d7_42ce_be48_19aac7b233a0
+#define INCLUDED_GodObjectRenderer_h_GUID_cb87c267_d1d7_42ce_be48_19aac7b233a0
 
 // Internal Includes
-// - none
+#include "BindingFwd.h"
 
 // Library/third-party includes
 // - none
@@ -24,4 +24,8 @@
 // Standard includes
 // - none
 
-#endif // INCLUDED_GodObjectRenderer_h_GUID_e33b000a_d86c_46cd_b12d_5bbd661c885f
+namespace HAPI {
+	class GodObjectRenderer;
+}
+
+#endif // INCLUDED_GodObjectRenderer_h_GUID_cb87c267_d1d7_42ce_be48_19aac7b233a0

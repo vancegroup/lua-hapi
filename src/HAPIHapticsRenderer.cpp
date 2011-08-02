@@ -19,6 +19,8 @@
 // Library/third-party includes
 #include <luabind/class.hpp>
 
+#include <HAPI/HAPIHapticsRenderer.h>
+
 // Standard includes
 // - none
 
@@ -26,7 +28,7 @@ template<> luabind::scope bind<HAPI::HAPIHapticsRenderer>() {
 	using namespace luabind;
 	return
 	    class_<HAPI::HAPIHapticsRenderer>("HAPIHapticsRenderer"),
-	    bind<HAPI::ProxyBasedRenderer>();
+	    bind<HAPI::HAPIProxyBasedRenderer>();
 
 
 
