@@ -26,6 +26,17 @@
 // Standard includes
 // - none
 
+
+namespace {
+	HAPI::HAPIInt32 getButtonStatus0(HAPI::HAPIHapticsDevice & hd) {
+		return hd.getButtonStatus();
+	}
+
+	bool getButtonStatus1(HAPI::HAPIHapticsDevice & hd, unsigned int button_nr) {
+		return hd.getButtonStatus(button_nr);
+	}
+}
+
 template<> luabind::scope getLuaBinding<HAPI::HAPIHapticsDevice>() {
 	using namespace luabind;
 
@@ -64,8 +75,8 @@ template<> luabind::scope getLuaBinding<HAPI::HAPIHapticsDevice>() {
 	    .def("clearEffects", (void (HAPI::HAPIHapticsDevice::*)())(&HAPI::HAPIHapticsDevice::clearEffects))
 
 
-	    //.def("getButtonStatus", (void (HAPI::HAPIHapticsDevice::*)())(HAPI::HAPIHapticsDevice::getButtonStatus))
-	    //.def("getButtonStatus", (void (HAPI::HAPIHapticsDevice::*)(unsigned int))(HAPI::HAPIHapticsDevice::getButtonStatus))
+	    .def("getButtonStatus", &getButtonStatus0)
+	    .def("getButtonStatus", &getButtonStatus1)
 
 	    .def("getPosition", &HAPI::HAPIHapticsDevice::getPosition)
 	    .def("getLastPosition", &HAPI::HAPIHapticsDevice::getLastPosition)
