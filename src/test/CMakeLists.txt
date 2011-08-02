@@ -1,4 +1,6 @@
-set(LUATESTS module)
+set(LUATESTS
+	module
+	vector)
 set(LUA_COMMAND lua )
 foreach(LUATEST ${LUATESTS})
 	add_test(NAME luatest_${LUATEST}
