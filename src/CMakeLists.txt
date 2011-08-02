@@ -1,4 +1,4 @@
-include_directories(${LUABIND_INCLUDE_DIRS} ${HAPI_INCLUDE_DIRS})
+include_directories(${LUABIND_INCLUDE_DIRS} ${HAPI_INCLUDE_DIRS} ${Boost_INCLUDE_DIRS})
 add_definitions(-DLUAHAPI_BUILDING)
 
 set(SOURCES

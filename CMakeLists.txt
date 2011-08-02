@@ -9,6 +9,7 @@ set(CPACK_PACKAGE_CONTACT "Ryan Pavlik <rpavlik@iastate.edu>")
 
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
 
+find_package(Boost REQUIRED)
 find_package(Luabind REQUIRED)
 
 include(CTest)
