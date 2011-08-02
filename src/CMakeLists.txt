@@ -114,6 +114,11 @@ set(HAPI_BINDING
 )
 
 set(H3DUTIL_BINDING
+	bind_h3dutil/VectorTraits.h
+	bind_h3dutil/VectorOf.h
+	bind_h3dutil/Vec2.h
+	bind_h3dutil/Vec2.cpp
+	bind_h3dutil/VectorFwd.h
 )
 
 add_library(luahapi MODULE ${SOURCES} ${API} ${HAPI_BINDING} ${H3DUTIL_BINDING})
