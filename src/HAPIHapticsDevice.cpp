@@ -48,6 +48,13 @@ namespace {
 	bool getButtonStatus1(HAPI::HAPIHapticsDevice & hd, unsigned int button_nr) {
 		return hd.getButtonStatus(button_nr);
 	}
+	void addShape1(HAPI::HAPIHapticsDevice & hd, HAPI::HAPIHapticShape * a) {
+		hd.addShape(a);
+	}
+
+	void addEffect1(HAPI::HAPIHapticsDevice & hd, HAPI::HAPIForceEffect * a) {
+		hd.addEffect(a);
+	}
 }
 
 template<> luabind::scope getLuaBinding<HAPI::HAPIHapticsDevice>() {
@@ -75,7 +82,7 @@ template<> luabind::scope getLuaBinding<HAPI::HAPIHapticsDevice>() {
 	    .def("setHapticsRenderer", &setHapticsRenderer1)
 
 	    .def("addShape", &HAPI::HAPIHapticsDevice::addShape)
-	    .def("addShape", (void (HAPI::HAPIHapticsDevice::*)(HAPI::HAPIHapticShape *))&HAPI::HAPIHapticsDevice::addShape)
+	    .def("addShape", &addShape1)
 
 	    .def("removeShape", &HAPI::HAPIHapticsDevice::removeShape)
 	    .def("removeShape", (void (HAPI::HAPIHapticsDevice::*)(HAPI::HAPIHapticShape *))&HAPI::HAPIHapticsDevice::removeShape)
@@ -85,7 +92,7 @@ template<> luabind::scope getLuaBinding<HAPI::HAPIHapticsDevice>() {
 
 
 	    .def("addEffect", &HAPI::HAPIHapticsDevice::addEffect)
-	    .def("addEffect", (void (HAPI::HAPIHapticsDevice::*)(HAPI::HAPIForceEffect *))&HAPI::HAPIHapticsDevice::addEffect)
+	    .def("addEffect", &addEffect1)
 
 	    .def("removeEffect", &HAPI::HAPIHapticsDevice::removeEffect)
 	    .def("removeEffect", (void (HAPI::HAPIHapticsDevice::*)(HAPI::HAPIForceEffect *))&HAPI::HAPIHapticsDevice::removeEffect)
