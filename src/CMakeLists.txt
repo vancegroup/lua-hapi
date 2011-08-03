@@ -80,8 +80,8 @@ set(HAPI_BINDING
 #	HapticRotationalSpring.h
 #	HapticShapeConstraint.cpp
 #	HapticShapeConstraint.h
-#	HapticSpring.cpp
-#	HapticSpring.h
+	HapticSpring.cpp
+	HapticSpring.h
 #	HapticTexturesSurface.cpp
 #	HapticTexturesSurface.h
 #	HapticTimeFunctionEffect.cpp

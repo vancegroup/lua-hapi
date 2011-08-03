@@ -25,6 +25,7 @@
 #include <luabind/class.hpp>
 
 #include <HAPI/HapticSpring.h>
+#include <H3DUtil/AutoRef.h>
 
 // Standard includes
 // - none
@@ -33,6 +34,14 @@ template<> luabind::scope getLuaBinding<HAPI::HapticSpring>() {
 	using namespace luabind;
 
 	return
-	    class_<HAPI::HapticSpring>("HapticSpring");
+	    class_<HAPI::HapticSpring, HAPI::HAPIForceEffect, H3DUtil::AutoRef<HAPI::HAPIForceEffect> >("HapticSpring")
+	    .def(constructor<>())
+	    .def(constructor<const HAPI::Vec3 &, HAPI::HAPIFloat>())
+	    .def(constructor<const HAPI::Vec3 &, HAPI::HAPIFloat, HAPI::HAPIFloat>())
+	    .def("setPosition", &HAPI::HapticSpring::setPosition)
+	    .def("setDamping", &HAPI::HapticSpring::setDamping)
+	    .def("setDamping", &HAPI::HapticSpring::setDamping)
+	    .def("setSpringConstant", &HAPI::HapticSpring::setDamping)
+	    ;
 }
 

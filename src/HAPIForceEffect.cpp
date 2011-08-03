@@ -30,6 +30,9 @@
 
 // Standard includes
 // - none
+namespace HAPI {
+	class HapticSpring;
+}
 
 template<> luabind::scope getLuaBinding<HAPI::HAPIForceEffect>() {
 	using namespace luabind;
@@ -38,13 +41,15 @@ template<> luabind::scope getLuaBinding<HAPI::HAPIForceEffect>() {
 	    class_<HAPI::HAPIForceEffect, H3DUtil::AutoRef<HAPI::HAPIForceEffect> >("HAPIForceEffect")
 	    , getLuaBinding<HAPI::DeviceLog>()
 	    /*
-	    ,getLuaBinding<HAPI::HapticForceField>()
-	    ,getLuaBinding<HAPI::PositionFunctionEffect>()
-	    ,getLuaBinding<HAPI::HapticRotationalSpring>()
-	    ,getLuaBinding<HAPI::HapticShapeConstraint>()
-	    ,getLuaBinding<HAPI::HapticSpring>()
-	    ,getLuaBinding<HAPI::HapticTimeFunctionEffect>()
-	    ,getLuaBinding<HAPI::HapticViscosity>()
+	    , getLuaBinding<HAPI::HapticForceField>()
+	    , getLuaBinding<HAPI::PositionFunctionEffect>()
+	    , getLuaBinding<HAPI::HapticRotationalSpring>()
+	    , getLuaBinding<HAPI::HapticShapeConstraint>()
+	    */
+	    , getLuaBinding<HAPI::HapticSpring>()
+	    /*
+	    , getLuaBinding<HAPI::HapticTimeFunctionEffect>()
+	    , getLuaBinding<HAPI::HapticViscosity>()
 	    */
 	    ;
 }
