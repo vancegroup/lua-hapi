@@ -20,7 +20,7 @@
 
 // Internal Includes
 #include "HAPIHapticsDevice.h"
-#include "HAPIHapticsDeviceErrorCode.h"
+//#include "HAPIHapticsDeviceErrorCode.h"
 
 #include "AnyHapticsDevice.h"
 #include "PhantomHapticsDevice.h"
@@ -35,6 +35,13 @@
 
 
 namespace {
+	HAPI::HAPIHapticsDevice::ErrorCode initDevice0(HAPI::HAPIHapticsDevice & hd) {
+		return hd.initDevice();
+	}
+	void setHapticsRenderer1(HAPI::HAPIHapticsDevice & hd, HAPI::HAPIHapticsRenderer * r) {
+		hd.setHapticsRenderer(r);
+	}
+
 	HAPI::HAPIInt32 getButtonStatus0(HAPI::HAPIHapticsDevice & hd) {
 		return hd.getButtonStatus();
 	}
@@ -50,7 +57,7 @@ template<> luabind::scope getLuaBinding<HAPI::HAPIHapticsDevice>() {
 	return
 	    class_<HAPI::HAPIHapticsDevice>("HAPIHapticsDevice")
 	    .def("initDevice", &HAPI::HAPIHapticsDevice::initDevice)
-	    .def("initDevice", (void (HAPI::HAPIHapticsDevice::*)())&HAPI::HAPIHapticsDevice::initDevice)
+	    .def("initDevice", &initDevice0)
 
 	    .def("enableDevice", &HAPI::HAPIHapticsDevice::enableDevice)
 
@@ -59,8 +66,7 @@ template<> luabind::scope getLuaBinding<HAPI::HAPIHapticsDevice>() {
 	    .def("releaseDevice", &HAPI::HAPIHapticsDevice::releaseDevice)
 
 	    .def("setHapticsRenderer", &HAPI::HAPIHapticsDevice::setHapticsRenderer)
-	    .def("setHapticsRenderer", (void (HAPI::HAPIHapticsDevice::*)(HAPI::HAPIHapticsRenderer *))&HAPI::HAPIHapticsDevice::setHapticsRenderer)
-
+	    .def("setHapticsRenderer", &setHapticsRenderer1)
 
 	    .def("addShape", &HAPI::HAPIHapticsDevice::addShape)
 	    .def("addShape", (void (HAPI::HAPIHapticsDevice::*)(HAPI::HAPIHapticShape *))&HAPI::HAPIHapticsDevice::addShape)
