@@ -11,6 +11,7 @@ list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
 
 find_package(Boost REQUIRED)
 find_package(Luabind REQUIRED)
+find_program(LUA_COMMAND lua lua5.1)
 
 include(CTest)
 
