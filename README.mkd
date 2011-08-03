@@ -1,0 +1,228 @@
+
+lua-hapi
+========
+
+Lua bindings for the HAPI open-source haptics library.
+
+[lua-hapi homepage on GitHub][home]
+
+Maintained by the [Vance Research Team][jmvance] at Iowa State
+University's Virtual Reality Applications Center. Original author: [Ryan
+Pavlik][rp], <rpavlik@iastate.edu> <abiryan@ryand.net>
+
+[home]:https://github.com/vance-group/lua-hapi
+[jmvance]:http://www.vrac.iastate.edu/~jmvance/ "Judy M. Vance, Ph. D."
+[rp]:http://academic.cleardefinition.com/ "Ryan Pavlik"
+
+Compatibility
+-------------
+Tested to build and run on:
+
+- Ubuntu 10.04 "Lucid" x86_64 (GCC/G++ 4.3.3, and with Clang/LLVM trunk revision 136715)
+
+Testing in progress, but builds on:
+
+- Visual Studio 2008 SP1 (and Visual C++ 2008 Feature Pack) - see note below
+
+Dependencies
+------------
+- Git, for downloading the source code and its dependencies.
+
+- CMake 2.8.4 or newer, for building the source only. (not needed once
+compiled and installed)
+
+- Boost 1.35 or newer (headers only, as needed by Luabind - other HAPI
+dependencies may require more)
+
+- Lua 5.1 (on Windows, the Lua Binaries project offers libraries and
+executables for a variety of compilers)
+
+- Luabind - [Ryan Pavlik's fork][luabind] with a CMake-based build and
+other improvements is recommended.
+
+###Not a dependency:
+A tested and slightly modified version of H3DUtil and HAPI are included
+in the source tree as submodules, so you do NOT need to install them
+separately first. (You can thank me later...)
+
+[luabind]:https://github.com/rpavlik/luabind "Luabind, with Ryan Pavlik's modifications."
+
+Getting the Source
+------------------
+###The quick version:
+    git clone https://github.com/vance-group/lua-hapi
+    cd lua-hapi
+    git submodule update --init
+
+###A bit of explanation
+The git repository hosted at the [homepage][home] contains the source
+for the bindings, and in "git submodules" the source of tested versions
+of H3DUtil and HAPI (and on Windows, pthreads-win32). If you forget to
+run the `git submodule update --init` command, these bundled
+dependencies won't be downloaded, and you'll get an error message when
+running CMake as a reminder.
+
+
+
+Building
+--------
+Just run CMake, being sure to set a build directory that is different
+from your source directory. Tell it where to find any dependencies it
+can't locate. Then, build the generated project/makefiles in the binary
+directory.
+
+The H3DUtil, HAPI, and pthreads-win32 (if applicable) libraries are
+configured and built in the same solution as the binding itself
+automatically. They do add some items to the CMake interface that you
+can configure to adjust device support.
+
+Windows Notes
+-------------
+Visual Studio 2008 may produce a number of "Incremental Linker has
+stopped working" errors on clean builds. Usually, attempting the build
+again (without cleaning) will succeed, but this is a pain. A hotfix is
+available from Microsoft: <http://archive.msdn.microsoft.com/KB948127>
+
+Acknowledgement
+---------------
+If you find this useful, we would appreciate hearing from you. If you
+use this for academic work, we would also appreciate a copy of the
+publication and a citation: this helps make a case for our work. You may
+contact the main developer, Ryan Pavlik (Iowa State University), by
+email at <rpavlik@iastate.edu> or <abiryan@ryand.net>.
+
+Paper materials and copies of publications may be mailed to:
+
+> Ryan Pavlik
+>
+> Virtual Reality Applications Center
+>
+> 1620 Howe Hall
+>
+> Ames, Iowa 50011-2274
+>
+> USA
+
+Licenses
+--------
+The full package is free and open-source software, under a variety of licenses.
+
+### lua-hapi - BSL 1.0
+The lua-hapi binding files themselves (the files in `src/`) are subject
+to the following license:
+
+> Copyright Iowa State University 2011.
+>
+> Distributed under the Boost Software License, Version 1.0.
+>
+> (See accompanying file `LICENSE_1_0.txt` or copy at
+> <http://www.boost.org/LICENSE_1_0.txt>)
+
+### H3DUtil and HAPI libraries (bundled) - GPL v2+
+The bundled HAPI and H3DUtil source code submodules, built automatically
+as shared libraries, are subject to the following license:
+
+> Copyright 2004-2011, SenseGraphics AB
+>
+> HAPI is free software; you can redistribute it and/or modify
+> it under the terms of the GNU General Public License as published by
+> the Free Software Foundation; either version 2 of the License, or
+> (at your option) any later version.
+>
+> HAPI is distributed in the hope that it will be useful,
+> but WITHOUT ANY WARRANTY; without even the implied warranty of
+> MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+> GNU General Public License for more details.
+>
+> You should have received a copy of the GNU General Public License
+> along with HAPI; if not, write to the Free Software
+> Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+>
+> A commercial license is also available. Please contact us at
+> www.sensegraphics.com for more information.
+
+HAPI includes "Function parser for C++ v2.8 by Warp", also available
+under the GNU GPL - see `submodules/hapi/include/HAPI/fparser.txt` for
+details.
+
+*Note that HAPI may build support for devices whose libraries are not
+open-source - be sure to conform with license requirements when
+redistributing!* (This is not legal advice, and I am not a lawyer.)
+
+### pthreads-win32 (bundled) - LGPL v2+
+The bundled pthreads-win32 source code submodule, built automatically as
+a shared library when on Windows, is subject to the following license:
+
+
+> Pthreads-win32 - POSIX Threads Library for Win32
+>
+> Copyright &copy; 1998 John E. Bossom
+>
+> Copyright &copy; 1999-2011 Pthreads-win32 contributors
+>
+> This library is free software; you can redistribute it and/or
+> modify it under the terms of the GNU Lesser General Public
+> License as published by the Free Software Foundation; either
+> version 2 of the License, or (at your option) any later version.
+>
+> This library is distributed in the hope that it will be useful,
+> but WITHOUT ANY WARRANTY; without even the implied warranty of
+> MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+> Lesser General Public License for more details.
+>
+> You should have received a copy of the GNU Lesser General Public
+> License along with this library in the file COPYING.LIB;
+> if not, write to the Free Software Foundation, Inc.,
+> 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA
+
+### Luabind (dependency) - MIT License
+Luabind is required to build lua-hapi, and is subject to the following license:
+
+> Copyright &copy; 2003-2011 Daniel Wallin and Arvid Norberg
+>
+> Copyright &copy; 2008-2011 Contributers
+>
+> Permission is hereby granted, free of charge, to any person obtaining a
+> copy of this software and associated documentation files (the "Software"),
+> to deal in the Software without restriction, including without limitation
+> the rights to use, copy, modify, merge, publish, distribute, sublicense,
+> and/or sell copies of the Software, and to permit persons to whom the
+> Software is furnished to do so, subject to the following conditions:
+>
+> The above copyright notice and this permission notice shall be included
+> in all copies or substantial portions of the Software.
+>
+> THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF
+> ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED
+> TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
+> PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT
+> SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR
+> ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN
+> ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+> OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE
+> OR OTHER DEALINGS IN THE SOFTWARE.
+
+### Lua 5.1 (dependency) - MIT License
+Lua 5.1 is required to build Luabind and lua-hapi, and is subject to the
+following license:
+
+> Copyright &copy; 1994–2011 Lua.org, PUC-Rio.
+>
+> Permission is hereby granted, free of charge, to any person obtaining
+> a copy of this software and associated documentation files (the
+> "Software"), to deal in the Software without restriction,including
+> without limitation the rights to use, copy, modify, merge, publish,
+> distribute, sublicense, and/or sell copies of the Software, and to
+> permit persons to whom the Software is furnished to do so, subject to
+> the following conditions:
+>
+> The above copyright notice and this permission notice shall be included
+> in all copies or substantial portions of the Software.
+>
+> THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+> OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+> MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+> IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+> CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+> TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+> SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
