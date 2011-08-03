@@ -31,8 +31,15 @@
 
 template<> luabind::scope getLuaBinding<HAPI::HaptionHapticsDevice>() {
 	using namespace luabind;
-
+#ifdef HAVE_VIRTUOSEAPI
 	return
-	    class_<HAPI::HaptionHapticsDevice>("HaptionHapticsDevice");
+	    class_<HAPI::HaptionHapticsDevice, HAPI::HAPIHapticsDevice>("HaptionHapticsDevice")
+	    .def(constructor<>())
+	    .def(constructor<std::string const&>())
+	    .def("getIpAddress", &HAPI::HaptionHapticsDevice::getIpAddress)
+	    ;
+#else
+	return scope();
+#endif
 }
 

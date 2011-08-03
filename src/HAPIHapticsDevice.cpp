@@ -23,6 +23,8 @@
 #include "HAPIHapticsDeviceErrorCode.h"
 
 #include "AnyHapticsDevice.h"
+#include "PhantomHapticsDevice.h"
+#include "HaptionHapticsDevice.h"
 
 // Library/third-party includes
 #include <luabind/class.hpp>
@@ -87,7 +89,9 @@ template<> luabind::scope getLuaBinding<HAPI::HAPIHapticsDevice>() {
 	    .def("getLastPosition", &HAPI::HAPIHapticsDevice::getLastPosition)
 
 	    .def("getLastErrorMsg", &HAPI::HAPIHapticsDevice::getLastErrorMsg)
-	    ,
-	    getLuaBinding<HAPI::AnyHapticsDevice>()
+
+	    ,getLuaBinding<HAPI::AnyHapticsDevice>()
+		,getLuaBinding<HAPI::PhantomHapticsDevice>()
+		,getLuaBinding<HAPI::HaptionHapticsDevice>()
 	    ;
 }

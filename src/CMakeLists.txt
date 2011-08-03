@@ -1,6 +1,13 @@
 include_directories(${LUABIND_INCLUDE_DIRS} ${HAPI_INCLUDE_DIRS} ${Boost_INCLUDE_DIRS})
 add_definitions(-DLUAHAPI_BUILDING)
 
+if(OPENHAPTICS_INCLUDE_DIR)
+	include_directories(${OPENHAPTICS_INCLUDE_DIR})
+endif()
+if(VIRTUOSE_INCLUDE_DIR)
+	include_directories(${VIRTUOSE_INCLUDE_DIR})
+endif()
+
 set(SOURCES
 	BindingFwd.h
 	HAPIHapticsDeviceErrorCode.h
@@ -88,8 +95,8 @@ set(HAPI_BINDING
 #	HapticViscosity.h
 #	HaptikHapticsDevice.cpp
 #	HaptikHapticsDevice.h
-#	HaptionHapticsDevice.cpp
-#	HaptionHapticsDevice.h
+	HaptionHapticsDevice.cpp
+	HaptionHapticsDevice.h
 #	HLThread.cpp
 #	HLThread.h
 #	ImageInterfaceObject.cpp
@@ -102,8 +109,8 @@ set(HAPI_BINDING
 #	NiFalconHapticsDevice.h
 #	ParsedFunction.cpp
 #	ParsedFunction.h
-#	PhantomHapticsDevice.cpp
-#	PhantomHapticsDevice.h
+	PhantomHapticsDevice.cpp
+	PhantomHapticsDevice.h
 #	PlaneConstraint.cpp
 #	PlaneConstraint.h
 #	QuanserHapticsDevice.cpp
