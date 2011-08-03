@@ -20,13 +20,13 @@
 
 // Internal Includes
 #include "HAPIForceEffect.h"
+#include "AutoRef.h"
 #include "DeviceLog.h"
 
 // Library/third-party includes
 #include <luabind/class.hpp>
 
 #include <HAPI/HAPIForceEffect.h>
-#include <H3DUtil/AutoRef.h>
 
 // Standard includes
 // - none

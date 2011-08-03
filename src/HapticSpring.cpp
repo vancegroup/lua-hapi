@@ -20,12 +20,12 @@
 
 // Internal Includes
 #include "HapticSpring.h"
+#include "AutoRef.h"
 
 // Library/third-party includes
 #include <luabind/class.hpp>
 
 #include <HAPI/HapticSpring.h>
-#include <H3DUtil/AutoRef.h>
 
 // Standard includes
 // - none

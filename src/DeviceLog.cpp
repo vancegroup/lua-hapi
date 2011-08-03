@@ -20,13 +20,13 @@
 
 // Internal Includes
 #include "DeviceLog.h"
+#include "AutoRef.h"
 
 // Library/third-party includes
 #include <luabind/class.hpp>
 #include <luabind/object.hpp>
 
 #include <HAPI/DeviceLog.h>
-#include <H3DUtil/AutoRef.h>
 
 // Standard includes
 // - none

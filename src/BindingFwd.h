@@ -33,14 +33,4 @@
 template<typename T>
 luabind::scope getLuaBinding();
 
-namespace H3DUtil {
-	template<typename T>
-	class AutoRef;
-
-	template<typename T>
-	T * get_pointer(AutoRef<T> const& ptr) {
-		return ptr.get();
-	}
-}
-
 #endif // INCLUDED_BindingFwd_h_GUID_fe617b29_8694_462f_866d_76c72adadf0d

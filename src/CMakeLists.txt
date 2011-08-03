@@ -9,11 +9,12 @@ if(VIRTUOSE_INCLUDE_DIR)
 endif()
 
 set(SOURCES
+	AutoRef.h
 	BindingFwd.h
 	LuaInclude.h
 	ModuleEntryPoint.cpp)
 
-set(API	
+set(API
 	ModuleEntryPoint.h
 	LuaInterface.h)
 
