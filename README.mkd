@@ -62,8 +62,6 @@ run the `git submodule update --init` command, these bundled
 dependencies won't be downloaded, and you'll get an error message when
 running CMake as a reminder.
 
-
-
 Building
 --------
 Just run CMake, being sure to set a build directory that is different
