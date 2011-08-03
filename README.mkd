@@ -22,6 +22,8 @@ Tested to build and run on:
 
 - Visual Studio 2008 SP1 (and Visual C++ 2008 Feature Pack) - see note below
 
+	- Caveat: "Debug" configuration currently crashes during tests. "RelWithDebInfo" is fine.
+
 Dependencies
 ------------
 - Git, for downloading the source code and its dependencies.
@@ -80,6 +82,7 @@ Visual Studio 2008 may produce a number of "Incremental Linker has
 stopped working" errors on clean builds. Usually, attempting the build
 again (without cleaning) will succeed, but this is a pain. A hotfix is
 available from Microsoft: <http://archive.msdn.microsoft.com/KB948127>
+After installing the hotfix, do a clean re-build of lua-hapi.
 
 Acknowledgement
 ---------------
