@@ -30,7 +30,7 @@
 // - none
 
 namespace HAPI {
-	class PhantomHapticsDevice;
+	class HaptionHapticsDevice;
 }
 
 template<> luabind::scope getLuaBinding<HAPI::HaptionHapticsDevice>() {
