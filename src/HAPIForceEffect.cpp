@@ -26,6 +26,7 @@
 #include <luabind/class.hpp>
 
 #include <HAPI/HAPIForceEffect.h>
+#include <H3DUtil/AutoRef.h>
 
 // Standard includes
 // - none
@@ -34,7 +35,7 @@ template<> luabind::scope getLuaBinding<HAPI::HAPIForceEffect>() {
 	using namespace luabind;
 
 	return
-	    class_<HAPI::HAPIForceEffect>("HAPIForceEffect")
+	    class_<HAPI::HAPIForceEffect, H3DUtil::AutoRef<HAPI::HAPIForceEffect> >("HAPIForceEffect")
 	    , getLuaBinding<HAPI::DeviceLog>()
 	    /*
 	    ,getLuaBinding<HAPI::HapticForceField>()

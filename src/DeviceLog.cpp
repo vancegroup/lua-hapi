@@ -26,6 +26,7 @@
 #include <luabind/object.hpp>
 
 #include <HAPI/DeviceLog.h>
+#include <H3DUtil/AutoRef.h>
 
 // Standard includes
 // - none
@@ -44,7 +45,7 @@ template<> luabind::scope getLuaBinding<HAPI::DeviceLog>() {
 	using namespace luabind;
 
 	return
-	    class_<HAPI::DeviceLog, HAPI::HAPIForceEffect>("DeviceLog")
+	    class_<HAPI::DeviceLog, HAPI::HAPIForceEffect, H3DUtil::AutoRef<HAPI::HAPIForceEffect> >("DeviceLog")
 	    .scope[
 	        class_<HAPI::DeviceLog::LogTypeVector>("LogTypeVector"),
 	        def("LogTypeVector", &createLogTypeVector)
