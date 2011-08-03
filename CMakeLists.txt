@@ -15,5 +15,9 @@ find_program(LUA_COMMAND lua lua5.1)
 
 include(CTest)
 
+set(BINDIR bin)
+set(LIBDIR lib)
+set(INCLUDEDIR include)
+
 add_subdirectory(submodules)
 add_subdirectory(src)
