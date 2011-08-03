@@ -20,8 +20,6 @@ Tested to build and run on:
 
 - Ubuntu 10.04 "Lucid" x86_64 (GCC/G++ 4.3.3, and with Clang/LLVM trunk revision 136715)
 
-Testing in progress, but builds on:
-
 - Visual Studio 2008 SP1 (and Visual C++ 2008 Feature Pack) - see note below
 
 Dependencies
