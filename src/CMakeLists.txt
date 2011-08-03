@@ -10,7 +10,6 @@ endif()
 
 set(SOURCES
 	BindingFwd.h
-	HAPIHapticsDeviceErrorCode.h
 	LuaInclude.h
 	ModuleEntryPoint.cpp)
 

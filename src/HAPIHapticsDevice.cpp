@@ -20,7 +20,6 @@
 
 // Internal Includes
 #include "HAPIHapticsDevice.h"
-//#include "HAPIHapticsDeviceErrorCode.h"
 
 #include "AnyHapticsDevice.h"
 #include "PhantomHapticsDevice.h"
@@ -56,6 +55,13 @@ template<> luabind::scope getLuaBinding<HAPI::HAPIHapticsDevice>() {
 
 	return
 	    class_<HAPI::HAPIHapticsDevice>("HAPIHapticsDevice")
+	    .enum_("ErrorCode")
+	    [
+	        value("SUCCESS", HAPI::HAPIHapticsDevice::SUCCESS),
+	        value("NOT_INITIALIZED", HAPI::HAPIHapticsDevice::NOT_INITIALIZED),
+	        value("NOT_ENABLED", HAPI::HAPIHapticsDevice::NOT_ENABLED),
+	        value("FAIL", HAPI::HAPIHapticsDevice::FAIL)
+	    ]
 	    .def("initDevice", &HAPI::HAPIHapticsDevice::initDevice)
 	    .def("initDevice", &initDevice0)
 
