@@ -3,6 +3,7 @@ add_definitions(-DLUAHAPI_BUILDING)
 
 set(SOURCES
 	BindingFwd.h
+	HAPIHapticsDeviceErrorCode.h
 	LuaInclude.h
 	ModuleEntryPoint.cpp)
 
