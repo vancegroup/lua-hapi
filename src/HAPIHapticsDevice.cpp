@@ -109,6 +109,8 @@ template<> luabind::scope getLuaBinding<HAPI::HAPIHapticsDevice>() {
 
 	    .def("getLastErrorMsg", &HAPI::HAPIHapticsDevice::getLastErrorMsg)
 
+	    .def("transferObjects", &HAPI::HAPIHapticsDevice::transferObjects)
+
 	    , getLuaBinding<HAPI::AnyHapticsDevice>()
 	    , getLuaBinding<HAPI::PhantomHapticsDevice>()
 	    , getLuaBinding<HAPI::HaptionHapticsDevice>()
