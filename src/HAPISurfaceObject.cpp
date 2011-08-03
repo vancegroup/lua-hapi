@@ -19,7 +19,7 @@
 
 
 // Internal Includes
-#include "HAPISurfaceObject.h"
+#include "BindingFwd.h"
 
 // Library/third-party includes
 #include <luabind/class.hpp>
@@ -33,6 +33,8 @@ template<> luabind::scope getLuaBinding<HAPI::HAPISurfaceObject>() {
 	using namespace luabind;
 
 	return
-	    class_<HAPI::HAPISurfaceObject>("HAPISurfaceObject");
+	    class_<HAPI::HAPISurfaceObject>("HAPISurfaceObject")
+	    /// @todo UNIMPLEMENTED STUB
+	    ;
 }
 

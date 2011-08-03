@@ -19,7 +19,7 @@
 
 
 // Internal Includes
-#include "HAPIFunctionObject.h"
+#include "BindingFwd.h"
 
 // Library/third-party includes
 #include <luabind/class.hpp>
@@ -33,6 +33,8 @@ template<> luabind::scope getLuaBinding<HAPI::HAPIFunctionObject>() {
 	using namespace luabind;
 
 	return
-	    class_<HAPI::HAPIFunctionObject>("HAPIFunctionObject");
+	    class_<HAPI::HAPIFunctionObject>("HAPIFunctionObject")
+	    /// @todo UNIMPLEMENTED STUB
+	    ;
 }
 

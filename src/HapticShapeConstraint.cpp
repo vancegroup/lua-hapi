@@ -19,7 +19,7 @@
 
 
 // Internal Includes
-#include "HapticShapeConstraint.h"
+#include "BindingFwd.h"
 
 // Library/third-party includes
 #include <luabind/class.hpp>
@@ -33,6 +33,8 @@ template<> luabind::scope getLuaBinding<HAPI::HapticShapeConstraint>() {
 	using namespace luabind;
 
 	return
-	    class_<HAPI::HapticShapeConstraint>("HapticShapeConstraint");
+	    class_<HAPI::HapticShapeConstraint>("HapticShapeConstraint")
+	    /// @todo UNIMPLEMENTED STUB
+	    ;
 }
 

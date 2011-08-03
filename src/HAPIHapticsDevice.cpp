@@ -19,11 +19,7 @@
 
 
 // Internal Includes
-#include "HAPIHapticsDevice.h"
-
-#include "AnyHapticsDevice.h"
-#include "PhantomHapticsDevice.h"
-#include "HaptionHapticsDevice.h"
+#include "BindingFwd.h"
 
 // Library/third-party includes
 #include <luabind/class.hpp>
@@ -32,6 +28,11 @@
 // Standard includes
 // - none
 
+namespace HAPI {
+	class AnyHapticsDevice;
+	class HaptionHapticsDevice;
+	class PhantomHapticsDevice;
+}
 
 namespace {
 	HAPI::HAPIHapticsDevice::ErrorCode initDevice0(HAPI::HAPIHapticsDevice & hd) {

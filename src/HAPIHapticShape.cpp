@@ -19,7 +19,7 @@
 
 
 // Internal Includes
-#include "HAPIHapticShape.h"
+#include "BindingFwd.h"
 
 // Library/third-party includes
 #include <luabind/class.hpp>
@@ -33,6 +33,8 @@ template<> luabind::scope getLuaBinding<HAPI::HAPIHapticShape>() {
 	using namespace luabind;
 
 	return
-	    class_<HAPI::HAPIHapticShape>("HAPIHapticShape");
+	    class_<HAPI::HAPIHapticShape>("HAPIHapticShape")
+	    /// @todo UNIMPLEMENTED STUB
+	    ;
 }
 

@@ -19,7 +19,7 @@
 
 
 // Internal Includes
-#include "AnyHapticsDevice.h"
+#include "BindingFwd.h"
 
 // Library/third-party includes
 #include <luabind/class.hpp>

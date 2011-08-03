@@ -19,7 +19,7 @@
 
 
 // Internal Includes
-#include "FeedbackBufferCollector.h"
+#include "BindingFwd.h"
 
 // Library/third-party includes
 #include <luabind/class.hpp>
@@ -33,6 +33,8 @@ template<> luabind::scope getLuaBinding<HAPI::FeedbackBufferCollector>() {
 	using namespace luabind;
 
 	return
-	    class_<HAPI::FeedbackBufferCollector>("FeedbackBufferCollector");
+	    class_<HAPI::FeedbackBufferCollector>("FeedbackBufferCollector")
+	    /// @todo UNIMPLEMENTED STUB
+	    ;
 }
 

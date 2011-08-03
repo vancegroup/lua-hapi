@@ -19,9 +19,8 @@
 
 
 // Internal Includes
-#include "HAPIForceEffect.h"
+#include "BindingFwd.h"
 #include "AutoRef.h"
-#include "DeviceLog.h"
 
 // Library/third-party includes
 #include <luabind/class.hpp>
@@ -31,6 +30,7 @@
 // Standard includes
 // - none
 namespace HAPI {
+	class DeviceLog;
 	class HapticSpring;
 }
 

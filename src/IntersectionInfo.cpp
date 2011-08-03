@@ -19,7 +19,7 @@
 
 
 // Internal Includes
-#include "IntersectionInfo.h"
+#include "BindingFwd.h"
 
 // Library/third-party includes
 #include <luabind/class.hpp>
@@ -33,6 +33,8 @@ template<> luabind::scope getLuaBinding<HAPI::IntersectionInfo>() {
 	using namespace luabind;
 
 	return
-	    class_<HAPI::IntersectionInfo>("IntersectionInfo");
+	    class_<HAPI::IntersectionInfo>("IntersectionInfo")
+	    /// @todo UNIMPLEMENTED STUB
+	    ;
 }
 

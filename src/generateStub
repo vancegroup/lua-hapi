@@ -85,7 +85,7 @@ ${AUTHORLINES}
 
 
 // Internal Includes
-#include "${filebase}.h"
+#include "BindingFwd.h"
 
 // Library/third-party includes
 #include <luabind/class.hpp>
@@ -99,50 +99,11 @@ template<> luabind::scope getLuaBinding<HAPI::${filebase}>() {
 	using namespace luabind;
 
 	return
-		class_<HAPI::${filebase}>("${filebase}");
+		class_<HAPI::${filebase}>("${filebase}")
+		/// @todo UNIMPLEMENTED STUB
+		;
 }
 
-EOS
-	fi
-
-	echo "${filebase}.h"
-	if [ ! -f "${filebase}.h" ]; then
-		def=$(echo "INCLUDED_${filebase}_h_GUID_$(uuidgen)" | sed 's/[-. /]/_/g')
-
-		cat > "${filebase}.h" <<EOS
-/** @file
-	@brief Header
-
-	@date `date +%Y`
-
-	@author
-${AUTHORLINES}
-*/
-
-//          Copyright Iowa State University 2011.
-// Distributed under the Boost Software License, Version 1.0.
-//    (See accompanying file LICENSE_1_0.txt or copy at
-//          http://www.boost.org/LICENSE_1_0.txt)
-
-
-#pragma once
-#ifndef ${def}
-#define ${def}
-
-// Internal Includes
-#include "BindingFwd.h"
-
-// Library/third-party includes
-// - none
-
-// Standard includes
-// - none
-
-namespace HAPI {
-	class ${filebase};
-}
-
-#endif // $def
 EOS
 	fi
 

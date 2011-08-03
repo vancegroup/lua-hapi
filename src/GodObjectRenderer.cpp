@@ -19,7 +19,7 @@
 
 
 // Internal Includes
-#include "GodObjectRenderer.h"
+#include "BindingFwd.h"
 
 // Library/third-party includes
 #include <luabind/class.hpp>

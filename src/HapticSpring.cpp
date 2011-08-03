@@ -19,7 +19,7 @@
 
 
 // Internal Includes
-#include "HapticSpring.h"
+#include "BindingFwd.h"
 #include "AutoRef.h"
 
 // Library/third-party includes

@@ -19,7 +19,7 @@
 
 
 // Internal Includes
-#include "FalconHapticsDevice.h"
+#include "BindingFwd.h"
 
 // Library/third-party includes
 #include <luabind/class.hpp>
@@ -33,6 +33,8 @@ template<> luabind::scope getLuaBinding<HAPI::FalconHapticsDevice>() {
 	using namespace luabind;
 
 	return
-	    class_<HAPI::FalconHapticsDevice>("FalconHapticsDevice");
+	    class_<HAPI::FalconHapticsDevice>("FalconHapticsDevice")
+	    /// @todo UNIMPLEMENTED STUB
+	    ;
 }
 

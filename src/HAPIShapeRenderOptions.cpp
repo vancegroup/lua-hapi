@@ -19,7 +19,7 @@
 
 
 // Internal Includes
-#include "HAPIShapeRenderOptions.h"
+#include "BindingFwd.h"
 
 // Library/third-party includes
 #include <luabind/class.hpp>
@@ -33,6 +33,8 @@ template<> luabind::scope getLuaBinding<HAPI::HAPIShapeRenderOptions>() {
 	using namespace luabind;
 
 	return
-	    class_<HAPI::HAPIShapeRenderOptions>("HAPIShapeRenderOptions");
+	    class_<HAPI::HAPIShapeRenderOptions>("HAPIShapeRenderOptions")
+	    /// @todo UNIMPLEMENTED STUB
+	    ;
 }
 

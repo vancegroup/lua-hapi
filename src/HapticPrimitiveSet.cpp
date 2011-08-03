@@ -19,7 +19,7 @@
 
 
 // Internal Includes
-#include "HapticPrimitiveSet.h"
+#include "BindingFwd.h"
 
 // Library/third-party includes
 #include <luabind/class.hpp>
@@ -33,6 +33,8 @@ template<> luabind::scope getLuaBinding<HAPI::HapticPrimitiveSet>() {
 	using namespace luabind;
 
 	return
-	    class_<HAPI::HapticPrimitiveSet>("HapticPrimitiveSet");
+	    class_<HAPI::HapticPrimitiveSet>("HapticPrimitiveSet")
+	    /// @todo UNIMPLEMENTED STUB
+	    ;
 }
 

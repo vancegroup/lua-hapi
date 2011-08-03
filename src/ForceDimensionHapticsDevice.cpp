@@ -19,7 +19,7 @@
 
 
 // Internal Includes
-#include "ForceDimensionHapticsDevice.h"
+#include "BindingFwd.h"
 
 // Library/third-party includes
 #include <luabind/class.hpp>
@@ -33,6 +33,8 @@ template<> luabind::scope getLuaBinding<HAPI::ForceDimensionHapticsDevice>() {
 	using namespace luabind;
 
 	return
-	    class_<HAPI::ForceDimensionHapticsDevice>("ForceDimensionHapticsDevice");
+	    class_<HAPI::ForceDimensionHapticsDevice>("ForceDimensionHapticsDevice")
+	    /// @todo UNIMPLEMENTED STUB
+	    ;
 }
 

@@ -19,7 +19,7 @@
 
 
 // Internal Includes
-#include "HLThread.h"
+#include "BindingFwd.h"
 
 // Library/third-party includes
 #include <luabind/class.hpp>
@@ -33,6 +33,8 @@ template<> luabind::scope getLuaBinding<HAPI::HLThread>() {
 	using namespace luabind;
 
 	return
-	    class_<HAPI::HLThread>("HLThread");
+	    class_<HAPI::HLThread>("HLThread")
+	    /// @todo UNIMPLEMENTED STUB
+	    ;
 }
 

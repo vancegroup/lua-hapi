@@ -19,7 +19,7 @@
 
 
 // Internal Includes
-#include "ParsedFunction.h"
+#include "BindingFwd.h"
 
 // Library/third-party includes
 #include <luabind/class.hpp>
@@ -33,6 +33,8 @@ template<> luabind::scope getLuaBinding<HAPI::ParsedFunction>() {
 	using namespace luabind;
 
 	return
-	    class_<HAPI::ParsedFunction>("ParsedFunction");
+	    class_<HAPI::ParsedFunction>("ParsedFunction")
+	    /// @todo UNIMPLEMENTED STUB
+	    ;
 }
 

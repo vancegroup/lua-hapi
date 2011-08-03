@@ -19,7 +19,7 @@
 
 
 // Internal Includes
-#include "RuspiniRenderer.h"
+#include "BindingFwd.h"
 
 // Library/third-party includes
 #include <luabind/class.hpp>
@@ -33,6 +33,8 @@ template<> luabind::scope getLuaBinding<HAPI::RuspiniRenderer>() {
 	using namespace luabind;
 
 	return
-	    class_<HAPI::RuspiniRenderer>("RuspiniRenderer");
+	    class_<HAPI::RuspiniRenderer>("RuspiniRenderer")
+	    /// @todo UNIMPLEMENTED STUB
+	    ;
 }
 

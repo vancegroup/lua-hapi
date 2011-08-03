@@ -20,11 +20,8 @@
 
 // Internal Includes
 #include "ModuleEntryPoint.h"
-
+#include "BindingFwd.h"
 #include "bind_h3dutil/Vector.h"
-#include "HAPIHapticsDevice.h"
-#include "HAPIHapticsRenderer.h"
-#include "HAPIForceEffect.h"
 
 // Library/third-party includes
 #include <luabind/open.hpp>
@@ -32,6 +29,11 @@
 // Standard includes
 // - none
 
+namespace HAPI {
+	class HAPIHapticsDevice;
+	class HAPIHapticsRenderer;
+	class HAPIForceEffect;
+}
 
 int luaopen_luahapi(lua_State *L) {
 	using namespace luabind;

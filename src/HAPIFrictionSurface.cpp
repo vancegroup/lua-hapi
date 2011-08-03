@@ -19,7 +19,7 @@
 
 
 // Internal Includes
-#include "HAPIFrictionSurface.h"
+#include "BindingFwd.h"
 
 // Library/third-party includes
 #include <luabind/class.hpp>
@@ -33,6 +33,8 @@ template<> luabind::scope getLuaBinding<HAPI::HAPIFrictionSurface>() {
 	using namespace luabind;
 
 	return
-	    class_<HAPI::HAPIFrictionSurface>("HAPIFrictionSurface");
+	    class_<HAPI::HAPIFrictionSurface>("HAPIFrictionSurface")
+	    /// @todo UNIMPLEMENTED STUB
+	    ;
 }
 

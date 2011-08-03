@@ -19,8 +19,7 @@
 
 
 // Internal Includes
-#include "HAPIHapticsRenderer.h"
-#include "HAPIProxyBasedRenderer.h"
+#include "BindingFwd.h"
 
 // Library/third-party includes
 #include <luabind/class.hpp>
@@ -29,6 +28,10 @@
 
 // Standard includes
 // - none
+
+namespace HAPI {
+	class HAPIProxyBasedRenderer;
+}
 
 template<> luabind::scope getLuaBinding<HAPI::HAPIHapticsRenderer>() {
 	using namespace luabind;

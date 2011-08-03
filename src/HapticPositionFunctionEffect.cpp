@@ -19,7 +19,7 @@
 
 
 // Internal Includes
-#include "HapticPositionFunctionEffect.h"
+#include "BindingFwd.h"
 
 // Library/third-party includes
 #include <luabind/class.hpp>
@@ -33,6 +33,8 @@ template<> luabind::scope getLuaBinding<HAPI::HapticPositionFunctionEffect>() {
 	using namespace luabind;
 
 	return
-	    class_<HAPI::HapticPositionFunctionEffect>("HapticPositionFunctionEffect");
+	    class_<HAPI::HapticPositionFunctionEffect>("HapticPositionFunctionEffect")
+	    /// @todo UNIMPLEMENTED STUB
+	    ;
 }
 
