@@ -96,8 +96,8 @@ template<> luabind::scope getLuaBinding<HAPI::HAPIHapticsDevice>() {
 
 	    .def("getLastErrorMsg", &HAPI::HAPIHapticsDevice::getLastErrorMsg)
 
-	    ,getLuaBinding<HAPI::AnyHapticsDevice>()
-		,getLuaBinding<HAPI::PhantomHapticsDevice>()
-		,getLuaBinding<HAPI::HaptionHapticsDevice>()
+	    , getLuaBinding<HAPI::AnyHapticsDevice>()
+	    , getLuaBinding<HAPI::PhantomHapticsDevice>()
+	    , getLuaBinding<HAPI::HaptionHapticsDevice>()
 	    ;
 }

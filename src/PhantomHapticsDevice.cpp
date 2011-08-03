@@ -34,13 +34,14 @@ template<> luabind::scope getLuaBinding<HAPI::PhantomHapticsDevice>() {
 #ifdef HAVE_OPENHAPTICS
 	return
 	    class_<HAPI::PhantomHapticsDevice, HAPI::HAPIHapticsDevice>("PhantomHapticsDevice")
-		.def(constructor<std::string>())
-		.def("getDeviceName", &HAPI::PhantomHapticsDevice::getDeviceName)
-		.def("getDeviceFirmwareVersion", &HAPI::PhantomHapticsDevice::getDeviceFirmwareVersion)
-		.def("getHDAPIVersion", &HAPI::PhantomHapticsDevice::getHDAPIVersion)
-		.def("getDeviceModelType", &HAPI::PhantomHapticsDevice::getDeviceModelType)
-		.def("getDeviceDriverVersion", &HAPI::PhantomHapticsDevice::getDeviceDriverVersion)
-		;
+	    .def(constructor<>())
+	    .def(constructor<std::string>())
+	    .def("getDeviceName", &HAPI::PhantomHapticsDevice::getDeviceName)
+	    .def("getDeviceFirmwareVersion", &HAPI::PhantomHapticsDevice::getDeviceFirmwareVersion)
+	    .def("getHDAPIVersion", &HAPI::PhantomHapticsDevice::getHDAPIVersion)
+	    .def("getDeviceModelType", &HAPI::PhantomHapticsDevice::getDeviceModelType)
+	    .def("getDeviceDriverVersion", &HAPI::PhantomHapticsDevice::getDeviceDriverVersion)
+	    ;
 #else
 	return scope();
 #endif
