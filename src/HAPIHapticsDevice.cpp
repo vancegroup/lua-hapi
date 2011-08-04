@@ -31,6 +31,7 @@
 namespace HAPI {
 	class AnyHapticsDevice;
 	class EntactHapticsDevice;
+	class FalconHapticsDevice;
 	class HaptionHapticsDevice;
 	class PhantomHapticsDevice;
 }
@@ -130,7 +131,9 @@ template<> luabind::scope getLuaBinding<HAPI::HAPIHapticsDevice>() {
 	    .def("transferObjects", &HAPI::HAPIHapticsDevice::transferObjects)
 
 	    , getLuaBinding<HAPI::AnyHapticsDevice>()
-	    , getLuaBinding<HAPI::PhantomHapticsDevice>()
+	    , getLuaBinding<HAPI::EntactHapticsDevice>()
+	    , getLuaBinding<HAPI::FalconHapticsDevice>()
 	    , getLuaBinding<HAPI::HaptionHapticsDevice>()
+	    , getLuaBinding<HAPI::PhantomHapticsDevice>()
 	    ;
 }

@@ -45,6 +45,7 @@ struct HAPIHapticsDeviceSubclass : luabind::class_<T, HAPI::HAPIHapticsDevice> {
 		: luabind::class_<T, HAPI::HAPIHapticsDevice>(name)
 	{}
 };
+
 template<> luabind::scope getLuaBinding<HAPI::AnyHapticsDevice>() {
 	using namespace luabind;
 
@@ -58,8 +59,34 @@ template<> luabind::scope getLuaBinding<HAPI::EntactHapticsDevice>() {
 #ifdef HAVE_ENTACTAPI
 	return
 	    HAPIHapticsDeviceSubclass<HAPI::EntactHapticsDevice>("EntactHapticsDevice")
-	    /// @todo UNIMPLEMENTED STUB
-	    ;
+	    .def(constructor<>())
+	    .def(constructor<int>())
+	    .def("getDeviceId", &HAPI::EntactHapticsDevice::getDeviceId)
+	    .def("getSerialNumber", &HAPI::EntactHapticsDevice::getSerialNumber)
+	    .def("needsCalibration", &HAPI::EntactHapticsDevice::needsCalibration)
+	    .def("calibrateDevice", &HAPI::EntactHapticsDevice::calibrateDevice)
+	    .scope
+	    [
+			def("getNumberConnectedEntactDevices", &HAPI::EntactHapticsDevice::getNumberConnectedEntactDevices)
+		]
+		;
+#else
+	return scope();
+#endif
+}
+
+template<> luabind::scope getLuaBinding<HAPI::FalconHapticsDevice>() {
+	using namespace luabind;
+#ifdef FALCONAPI
+	return
+	    HAPIHapticsDeviceSubclass<HAPI::FalconHapticsDevice>("FalconHapticsDevice")
+	    .def(constructor<>())
+	    .def(constructor<int>())
+	    .def(constructor<std::string>())
+	    .def("getDeviceName", &HAPI::FalconHapticsDevice::getDeviceName)
+	    .def("getDeviceModel", &HAPI::FalconHapticsDevice::getDeviceModel)
+	    .def("getWorkspaceDimensions", &HAPI::FalconHapticsDevice::getWorkspaceDimensions, pure_out_value(_1) + pure_out_value(_2))
+		;
 #else
 	return scope();
 #endif
