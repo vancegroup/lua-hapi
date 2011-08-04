@@ -12,6 +12,7 @@ set(SOURCES
 	AutoRef.h
 	BindingFwd.h
 	HAPIForceEffectSubclass.h
+	HAPIHapticsDeviceSubclass.h
 	LuaInclude.h
 	LuaInterface.h
 	ModuleEntryPoint.cpp)

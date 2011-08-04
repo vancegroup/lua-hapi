@@ -20,6 +20,7 @@
 
 // Internal Includes
 #include "BindingFwd.h"
+#include "HAPIHapticsDeviceSubclass.h"
 
 // Library/third-party includes
 #include <luabind/class.hpp>
@@ -32,6 +33,6 @@ template<> luabind::scope getLuaBinding<HAPI::AnyHapticsDevice>() {
 	using namespace luabind;
 
 	return
-	    class_<HAPI::AnyHapticsDevice, HAPI::HAPIHapticsDevice>("AnyHapticsDevice")
+	    HAPIHapticsDeviceSubclass<HAPI::AnyHapticsDevice>("AnyHapticsDevice")
 	    .def(constructor<>());
 }
