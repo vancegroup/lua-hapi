@@ -29,6 +29,7 @@
 #include <HAPI/EntactHapticsDevice.h>
 #include <HAPI/FalconHapticsDevice.h>
 #include <HAPI/ForceDimensionHapticsDevice.h>
+#include <HAPI/HapticMasterDevice.h>
 #include <HAPI/HaptikHapticsDevice.h>
 #include <HAPI/HaptionHapticsDevice.h>
 #include <HAPI/MLHIHapticsDevice.h>
@@ -128,6 +129,18 @@ template<> luabind::scope getLuaBinding<HAPI::ForceDimensionHapticsDevice>() {
 	        , value("DHD_DEVICE_SIMULATOR", DHD_DEVICE_SIMULATOR)
 	        , value("DHD_DEVICE_CUSTOM", DHD_DEVICE_CUSTOM)
 	    ]
+	    ;
+#else
+	return scope();
+#endif
+}
+
+template<> luabind::scope getLuaBinding<HAPI::HapticMasterDevice>() {
+	using namespace luabind;
+
+#ifdef HAVE_HAPTIC_MASTER_API
+	return
+	    HAPIHapticsDeviceSubclass<HAPI::HapticMasterDevice>("HapticMasterDevice")
 	    ;
 #else
 	return scope();

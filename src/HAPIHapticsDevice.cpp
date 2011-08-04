@@ -164,6 +164,7 @@ template<> luabind::scope getLuaBinding<HAPI::HAPIHapticsDevice>() {
 	    , getLuaBinding<HAPI::EntactHapticsDevice>()
 	    , getLuaBinding<HAPI::FalconHapticsDevice>()
 	    , getLuaBinding<HAPI::ForceDimensionHapticsDevice>()
+	    , getLuaBinding<HAPI::HapticMasterDevice>()
 	    , getLuaBinding<HAPI::HaptikHapticsDevice>()
 	    , getLuaBinding<HAPI::HaptionHapticsDevice>()
 	    , getLuaBinding<HAPI::MLHIHapticsDevice>()
