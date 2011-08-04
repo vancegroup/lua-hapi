@@ -17,37 +17,15 @@
 //    (See accompanying file LICENSE_1_0.txt or copy at
 //          http://www.boost.org/LICENSE_1_0.txt)
 
-
 // Internal Includes
-#include "ModuleEntryPoint.h"
-#include "BindingFwd.h"
 #include "ClassInfo.h"
-#include "bind_h3dutil/Vector.h"
 
 // Library/third-party includes
-#include <luabind/open.hpp>
+#include <luabind/class_info.hpp>
 
 // Standard includes
 // - none
 
-namespace HAPI {
-	class HAPIHapticsDevice;
-	class HAPIHapticsRenderer;
-	class HAPIForceEffect;
-}
-
-int luaopen_luahapi(lua_State *L) {
-	using namespace luabind;
-	open(L);
-	module(L, "HAPI")
-	[
-	    bindVector(),
-	    getLuaBinding<HAPI::HAPIHapticsDevice>(),
-	    getLuaBinding<HAPI::HAPIHapticsRenderer>(),
-	    getLuaBinding<HAPI::HAPIForceEffect>(),
-
-	    scope() // trailing empty scope so we can put commas after each binding call
-	];
-	bindClassInfo(L);
-	return 0;
+void bindClassInfo(lua_State * L) {
+	luabind::bind_class_info(L);
 }

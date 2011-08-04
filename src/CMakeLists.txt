@@ -10,6 +10,8 @@ endif()
 
 set(SOURCES
 	AutoRef.h
+	ClassInfo.cpp
+	ClassInfo.h
 	BindingFwd.h
 	HAPIForceEffectSubclass.h
 	LuaInclude.h
