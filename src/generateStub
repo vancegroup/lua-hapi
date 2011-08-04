@@ -11,13 +11,9 @@ AUTHORLINES=$(cat <<EOS
 EOS
 )
 
-CLASSES="AnyHapticsDevice \
-	DepthMapSurface \
+CLASSES="DepthMapSurface \
 	DeviceLog \
-	EntactHapticsDevice \
-	FalconHapticsDevice \
 	FeedbackBufferCollector \
-	ForceDimensionHapticsDevice \
 	FrictionSurface \
 	GodObjectRenderer \
 	HAPIForceEffect \
@@ -34,7 +30,6 @@ CLASSES="AnyHapticsDevice \
 	HAPIVariableDepthSurface \
 	HapticForceField \
 	HapticLineSet \
-	HapticMasterDevice \
 	HapticPointSet \
 	HapticPositionFunctionEffect \
 	HapticPrimitive \
@@ -48,19 +43,12 @@ CLASSES="AnyHapticsDevice \
 	HapticTriangleSet \
 	HapticTriangleTree \
 	HapticViscosity \
-	HaptikHapticsDevice \
-	HaptionHapticsDevice \
 	HLThread \
 	ImageInterfaceObject \
 	IntersectionInfo \
-	MLHIHapticsDevice \
-	NiFalconHapticsDevice \
 	ParsedFunction \
-	PhantomHapticsDevice \
 	PlaneConstraint \
-	QuanserHapticsDevice \
-	RuspiniRenderer \
-	SimballHapticsDevice"
+	RuspiniRenderer"
 
 for filebase in ${CLASSES}; do
 
