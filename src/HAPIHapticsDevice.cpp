@@ -113,8 +113,16 @@ template<> luabind::scope getLuaBinding<HAPI::HAPIHapticsDevice>() {
 
 	    .def("getDeviceState", &HAPI::HAPIHapticsDevice::getDeviceState)
 
+	    .def("getMaxStiffness", &HAPI::HAPIHapticsDevice::getMaxStiffness)
+
+	    .def("nrLayers", &HAPI::HAPIHapticsDevice::nrLayers)
+	    .def("getHapticsRate", &HAPI::HAPIHapticsDevice::getHapticsRate)
+
 	    .def("setHapticsRenderer", &HAPI::HAPIHapticsDevice::setHapticsRenderer)
 	    .def("setHapticsRenderer", &setHapticsRenderer1)
+
+	    .def("getHapticsRenderer", &HAPI::HAPIHapticsDevice::getHapticsRenderer)
+	    .def("getHapticsRenderer", &getHapticsRenderer0)
 
 	    .def("addShape", &HAPI::HAPIHapticsDevice::addShape)
 	    .def("addShape", &addShape1)
@@ -124,7 +132,6 @@ template<> luabind::scope getLuaBinding<HAPI::HAPIHapticsDevice>() {
 
 	    .def("clearShapes", &HAPI::HAPIHapticsDevice::clearShapes)
 	    .def("clearShapes", &clearShapes0)
-
 
 	    .def("addEffect", &HAPI::HAPIHapticsDevice::addEffect)
 	    .def("addEffect", &addEffect1)
@@ -138,12 +145,32 @@ template<> luabind::scope getLuaBinding<HAPI::HAPIHapticsDevice>() {
 	    .def("getButtonStatus", &getButtonStatus0)
 	    .def("getButtonStatus", &getButtonStatus1)
 
-	    .def("getPosition", &HAPI::HAPIHapticsDevice::getPosition)
-	    .def("getLastPosition", &HAPI::HAPIHapticsDevice::getLastPosition)
+	    .def("getLastButtonStatus", &getLastButtonStatus0)
+	    .def("getLastButtonStatus", &getLastButtonStatus1)
 
-	    .def("getLastErrorMsg", &HAPI::HAPIHapticsDevice::getLastErrorMsg)
+#define DEF_STATE_ATTRIBUTE(_ATTR) \
+	    .def("get" #_ATTR, &HAPI::HAPIHapticsDevice::get ## _ATTR) \
+	    .def("getLast" #_ATTR, &HAPI::HAPIHapticsDevice::getLast ## _ATTR)
 
-	    .def("transferObjects", &HAPI::HAPIHapticsDevice::transferObjects)
+	    DEF_STATE_ATTRIBUTE(DeviceValues)
+	    DEF_STATE_ATTRIBUTE(RawDeviceValues)
+
+	    DEF_STATE_ATTRIBUTE(Position)
+	    DEF_STATE_ATTRIBUTE(RawPosition)
+
+	    DEF_STATE_ATTRIBUTE(Orientation)
+	    DEF_STATE_ATTRIBUTE(RawOrientation)
+
+	    DEF_STATE_ATTRIBUTE(Velocity)
+	    DEF_STATE_ATTRIBUTE(RawVelocity)
+
+	    DEF_STATE_ATTRIBUTE(Force)
+	    DEF_STATE_ATTRIBUTE(RawForce)
+
+	    DEF_STATE_ATTRIBUTE(Torque)
+	    DEF_STATE_ATTRIBUTE(RawTorque)
+
+#undef DEF_STATE_ATTRIBUTE
 
 	    , getLuaBinding<HAPI::AnyHapticsDevice>()
 	    , getLuaBinding<HAPI::EntactHapticsDevice>()
