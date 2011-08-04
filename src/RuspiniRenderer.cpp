@@ -33,8 +33,11 @@ template<> luabind::scope getLuaBinding<HAPI::RuspiniRenderer>() {
 	using namespace luabind;
 
 	return
-	    class_<HAPI::RuspiniRenderer>("RuspiniRenderer")
-	    /// @todo UNIMPLEMENTED STUB
+	    class_<HAPI::RuspiniRenderer, HAPI::HAPIProxyBasedRenderer>("RuspiniRenderer")
+	    .def(constructor<>())
+	    .def(constructor<HAPI::HAPIFloat>())
+	    .def("getProxyRadius", &HAPI::RuspiniRenderer::getProxyRadius)
+	    .def("setProxyRadius", &HAPI::RuspiniRenderer::setProxyRadius)
 	    ;
 }
 

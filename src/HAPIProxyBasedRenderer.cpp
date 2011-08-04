@@ -31,6 +31,7 @@
 
 namespace HAPI {
 	class GodObjectRenderer;
+	class RuspiniRenderer;
 }
 
 template<> luabind::scope getLuaBinding<HAPI::HAPIProxyBasedRenderer>() {
@@ -39,6 +40,8 @@ template<> luabind::scope getLuaBinding<HAPI::HAPIProxyBasedRenderer>() {
 	return
 	    class_<HAPI::HAPIProxyBasedRenderer, HAPI::HAPIHapticsRenderer>("HAPIProxyBasedRenderer")
 	    .def("getProxyPosition", &HAPI::HAPIProxyBasedRenderer::getProxyPosition)
-	    , getLuaBinding<HAPI::GodObjectRenderer>();
+	    , getLuaBinding<HAPI::GodObjectRenderer>()
+	    , getLuaBinding<HAPI::RuspiniRenderer>()
+	    ;
 }
 

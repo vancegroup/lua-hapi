@@ -65,7 +65,7 @@ set(HAPI_BINDING
 	#IntersectionInfo.cpp
 	#ParsedFunction.cpp
 	#PlaneConstraint.cpp
-	#RuspiniRenderer.cpp
+	RuspiniRenderer.cpp
 )
 
 set(H3DUTIL_BINDING
