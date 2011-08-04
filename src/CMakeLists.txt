@@ -46,7 +46,6 @@ set(HAPI_BINDING
 	#HAPIVariableDepthSurface.cpp
 	HapticForceField.cpp
 	#HapticLineSet.cpp
-	#HapticMasterDevice.cpp
 	#HapticPointSet.cpp
 	#HapticPositionFunctionEffect.cpp
 	#HapticPrimitive.cpp
@@ -60,16 +59,12 @@ set(HAPI_BINDING
 	#HapticTriangleSet.cpp
 	#HapticTriangleTree.cpp
 	HapticViscosity.cpp
-	#HaptikHapticsDevice.cpp
 	#HLThread.cpp
 	#ImageInterfaceObject.cpp
 	#IntersectionInfo.cpp
-	#MLHIHapticsDevice.cpp
 	#ParsedFunction.cpp
 	#PlaneConstraint.cpp
-	#QuanserHapticsDevice.cpp
 	#RuspiniRenderer.cpp
-	#SimballHapticsDevice.cpp
 )
 
 set(H3DUTIL_BINDING
