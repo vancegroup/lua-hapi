@@ -20,6 +20,7 @@
 
 // Internal Includes
 #include "BindingFwd.h"
+#include "AutoRef.h"
 
 // Library/third-party includes
 #include <luabind/class.hpp>
@@ -29,12 +30,29 @@
 // Standard includes
 // - none
 
+namespace HAPI {
+	class FrictionSurface;
+}
+
 template<> luabind::scope getLuaBinding<HAPI::HAPIFrictionSurface>() {
 	using namespace luabind;
 
 	return
-	    class_<HAPI::HAPIFrictionSurface>("HAPIFrictionSurface")
-	    /// @todo UNIMPLEMENTED STUB
+	    class_<HAPI::HAPIFrictionSurface, HAPI::HAPISurfaceObject, H3DUtil::AutoRef<HAPI::HAPISurfaceObject> >("HAPIFrictionSurface")
+	    .def(constructor<>())
+	    .def(constructor<HAPI::HAPIFloat>())
+	    .def(constructor<HAPI::HAPIFloat, HAPI::HAPIFloat>())
+	    .def(constructor<HAPI::HAPIFloat, HAPI::HAPIFloat, HAPI::HAPIFloat>())
+	    .def(constructor<HAPI::HAPIFloat, HAPI::HAPIFloat, HAPI::HAPIFloat, HAPI::HAPIFloat>())
+	    .def(constructor<HAPI::HAPIFloat, HAPI::HAPIFloat, HAPI::HAPIFloat, HAPI::HAPIFloat, bool>())
+	    .def(constructor<HAPI::HAPIFloat, HAPI::HAPIFloat, HAPI::HAPIFloat, HAPI::HAPIFloat, bool, bool>())
+	    .def_readwrite("stiffness", &HAPI::HAPIFrictionSurface::stiffness)
+	    .def_readwrite("damping", &HAPI::HAPIFrictionSurface::damping)
+	    .def_readwrite("static_friction", &HAPI::HAPIFrictionSurface::static_friction)
+	    .def_readwrite("dynamic_friction", &HAPI::HAPIFrictionSurface::dynamic_friction)
+	    .def_readwrite("use_relative_values", &HAPI::HAPIFrictionSurface::use_relative_values)
+
+	    , getLuaBinding<HAPI::FrictionSurface>()
 	    ;
 }
 

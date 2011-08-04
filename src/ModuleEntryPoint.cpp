@@ -35,6 +35,7 @@ namespace HAPI {
 	class HAPIFunctionObject;
 	class HAPIHapticsDevice;
 	class HAPIHapticsRenderer;
+	class HAPISurfaceObject;
 }
 
 int luaopen_luahapi(lua_State *L) {
@@ -47,6 +48,7 @@ int luaopen_luahapi(lua_State *L) {
 	    getLuaBinding<HAPI::HAPIFunctionObject>(),
 	    getLuaBinding<HAPI::HAPIHapticsDevice>(),
 	    getLuaBinding<HAPI::HAPIHapticsRenderer>(),
+	    getLuaBinding<HAPI::HAPISurfaceObject>(),
 
 	    scope() // trailing empty scope so we can put commas after each binding call
 	];

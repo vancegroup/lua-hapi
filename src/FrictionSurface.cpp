@@ -20,6 +20,7 @@
 
 // Internal Includes
 #include "BindingFwd.h"
+#include "AutoRef.h"
 
 // Library/third-party includes
 #include <luabind/class.hpp>
@@ -33,8 +34,14 @@ template<> luabind::scope getLuaBinding<HAPI::FrictionSurface>() {
 	using namespace luabind;
 
 	return
-	    class_<HAPI::FrictionSurface>("FrictionSurface")
-	    /// @todo UNIMPLEMENTED STUB
+	    class_<HAPI::FrictionSurface, HAPI::HAPIFrictionSurface, H3DUtil::AutoRef<HAPI::HAPISurfaceObject> >("FrictionSurface")
+	    .def(constructor<>())
+	    .def(constructor<HAPI::HAPIFloat>())
+	    .def(constructor<HAPI::HAPIFloat, HAPI::HAPIFloat>())
+	    .def(constructor<HAPI::HAPIFloat, HAPI::HAPIFloat, HAPI::HAPIFloat>())
+	    .def(constructor<HAPI::HAPIFloat, HAPI::HAPIFloat, HAPI::HAPIFloat, HAPI::HAPIFloat>())
+	    .def(constructor<HAPI::HAPIFloat, HAPI::HAPIFloat, HAPI::HAPIFloat, HAPI::HAPIFloat, bool>())
+	    .def(constructor<HAPI::HAPIFloat, HAPI::HAPIFloat, HAPI::HAPIFloat, HAPI::HAPIFloat, bool, bool>())
 	    ;
 }
 

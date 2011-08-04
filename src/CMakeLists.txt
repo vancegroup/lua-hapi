@@ -31,10 +31,10 @@ set(HAPI_BINDING
 	#DepthMapSurface.cpp
 	DeviceLog.cpp
 	#FeedbackBufferCollector.cpp
-	#FrictionSurface.cpp
+	FrictionSurface.cpp
 	GodObjectRenderer.cpp
 	HAPIForceEffect.cpp
-	#HAPIFrictionSurface.cpp
+	HAPIFrictionSurface.cpp
 	HAPIFunctionObject.cpp
 	#HAPIGLShape.cpp
 	#HAPIHapticObject.cpp
@@ -43,7 +43,7 @@ set(HAPI_BINDING
 	HAPIHapticsRenderer.cpp
 	HAPIProxyBasedRenderer.cpp
 	#HAPIShapeRenderOptions.cpp
-	#HAPISurfaceObject.cpp
+	HAPISurfaceObject.cpp
 	#HAPIVariableDepthSurface.cpp
 	HapticForceField.cpp
 	#HapticLineSet.cpp
