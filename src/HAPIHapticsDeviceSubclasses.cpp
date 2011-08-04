@@ -89,7 +89,7 @@ template<> luabind::scope getLuaBinding<HAPI::FalconHapticsDevice>() {
 	    .def(constructor<std::string>())
 	    .def("getDeviceName", &HAPI::FalconHapticsDevice::getDeviceName)
 	    .def("getDeviceModel", &HAPI::FalconHapticsDevice::getDeviceModel)
-	    .def("getWorkspaceDimensions", &HAPI::FalconHapticsDevice::getWorkspaceDimensions, pure_out_value(_1) + pure_out_value(_2))
+	    .def("getWorkspaceDimensions", &HAPI::FalconHapticsDevice::getWorkspaceDimensions, pure_out_value(_2) + pure_out_value(_3))
 	    ;
 #else
 	return scope();
@@ -243,8 +243,8 @@ template<> luabind::scope getLuaBinding<HAPI::PhantomHapticsDevice>() {
 	    .def("getDeviceVendor", &HAPI::PhantomHapticsDevice::getDeviceVendor)
 	    .def("getDeviceSerialNumber", &HAPI::PhantomHapticsDevice::getDeviceSerialNumber)
 	    .def("getMotorTemperatures", &getMotorTemperatures)
-	    .def("getMaxWorkspaceDimensions", &HAPI::PhantomHapticsDevice::getMaxWorkspaceDimensions, pure_out_value(_1) + pure_out_value(_2))
-	    .def("getUsableWorkspaceDimensions", &HAPI::PhantomHapticsDevice::getUsableWorkspaceDimensions, pure_out_value(_1) + pure_out_value(_2))
+	    .def("getMaxWorkspaceDimensions", &HAPI::PhantomHapticsDevice::getMaxWorkspaceDimensions, pure_out_value(_2) + pure_out_value(_3))
+	    .def("getUsableWorkspaceDimensions", &HAPI::PhantomHapticsDevice::getUsableWorkspaceDimensions, pure_out_value(_2) + pure_out_value(_3))
 	    .def("getTabletopOffset", &HAPI::PhantomHapticsDevice::getTabletopOffset)
 	    .def("getMaxForce", &HAPI::PhantomHapticsDevice::getMaxForce)
 	    .def("getMaxContinuousForce", &HAPI::PhantomHapticsDevice::getMaxContinuousForce)
