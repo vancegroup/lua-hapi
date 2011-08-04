@@ -61,9 +61,9 @@ template<> luabind::scope getLuaBinding<HAPI::EntactHapticsDevice>() {
 	    .def("calibrateDevice", &HAPI::EntactHapticsDevice::calibrateDevice)
 	    .scope
 	    [
-			def("getNumberConnectedEntactDevices", &HAPI::EntactHapticsDevice::getNumberConnectedEntactDevices)
-		]
-		;
+	        def("getNumberConnectedEntactDevices", &HAPI::EntactHapticsDevice::getNumberConnectedEntactDevices)
+	    ]
+	    ;
 #else
 	return scope();
 #endif
@@ -80,7 +80,7 @@ template<> luabind::scope getLuaBinding<HAPI::FalconHapticsDevice>() {
 	    .def("getDeviceName", &HAPI::FalconHapticsDevice::getDeviceName)
 	    .def("getDeviceModel", &HAPI::FalconHapticsDevice::getDeviceModel)
 	    .def("getWorkspaceDimensions", &HAPI::FalconHapticsDevice::getWorkspaceDimensions, pure_out_value(_1) + pure_out_value(_2))
-		;
+	    ;
 #else
 	return scope();
 #endif
