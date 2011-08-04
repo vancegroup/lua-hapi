@@ -53,7 +53,9 @@ template<> luabind::scope getLuaBinding<HAPI::AnyHapticsDevice>() {
 
 	return
 	    HAPIHapticsDeviceSubclass<HAPI::AnyHapticsDevice>("AnyHapticsDevice")
-	    .def(constructor<>());
+	    .def(constructor<>())
+	    .def("getActualHapticsDevice", &HAPI::AnyHapticsDevice::getActualHapticsDevice)
+	    ;
 }
 
 template<> luabind::scope getLuaBinding<HAPI::EntactHapticsDevice>() {
@@ -95,11 +97,10 @@ template<> luabind::scope getLuaBinding<HAPI::FalconHapticsDevice>() {
 }
 
 #ifdef HAVE_DHDAPI
-namespace {
-	void waitForReset0(HAPI::ForceDimensionHapticsDevice & hd) {
-		hd.reset();
-	}
-}
+#define FORWARDING_OBJECT_TYPE HAPI::ForceDimensionHapticsDevice
+#include "ForwardingMacros.h"
+VOID_FORWARDER0(waitForReset)
+#include "ForwardingMacrosUndef.h"
 #endif
 
 template<> luabind::scope getLuaBinding<HAPI::ForceDimensionHapticsDevice>() {
@@ -141,6 +142,10 @@ template<> luabind::scope getLuaBinding<HAPI::HapticMasterDevice>() {
 #ifdef HAVE_HAPTIC_MASTER_API
 	return
 	    HAPIHapticsDeviceSubclass<HAPI::HapticMasterDevice>("HapticMasterDevice")
+	    .def(constructor<>())
+	    .def(constructor<std::string const&>())
+	    .def("getDeviceHandle", &HAPI::HapticMasterDevice::getDeviceHandle)
+	    .def("getName", &HAPI::HapticMasterDevice::getName)
 	    ;
 #else
 	return scope();
@@ -153,6 +158,9 @@ template<> luabind::scope getLuaBinding<HAPI::HaptikHapticsDevice>() {
 #ifdef HAVE_HAPTIK_LIBRARY
 	return
 	    HAPIHapticsDeviceSubclass<HAPI::HaptikHapticsDevice>("HaptikHapticsDevice")
+	    .def(constructor<>())
+	    .def("changeHaptikDevice", &HAPI::HaptikHapticsDevice::changeHaptikDevice)
+	    .def("getHaptikIndex", &HAPI::HaptikHapticsDevice::getHaptikIndex)
 	    ;
 #else
 	return scope();
@@ -179,6 +187,9 @@ template<> luabind::scope getLuaBinding<HAPI::MLHIHapticsDevice>() {
 #ifdef HAVE_MLHI
 	return
 	    HAPIHapticsDeviceSubclass<HAPI::MLHIHapticsDevice>("MLHIHapticsDevice")
+	    .def(constructor<>())
+	    .def(constructor<std::string const&>())
+	    .def("allowRotation", &HAPI::MLHIHapticsDevice::allowRotation)
 	    ;
 #else
 	return scope();
@@ -201,6 +212,22 @@ template<> luabind::scope getLuaBinding<HAPI::NiFalconHapticsDevice>() {
 #endif
 }
 
+#ifdef HAVE_OPENHAPTICS
+namespace {
+	/// wrapper for getMotorTemperatures that returns a table
+	luabind::object getMotorTemperatures(lua_State * L, HAPI::PhantomHapticsDevice & hd) {
+		using namespace luabind;
+		object o = newtable(L);
+		const std::vector<HAPI::HAPIFloat> & ret = hd.getMotorTemperatures();
+		const int n = ret.size();
+		for (int i = 0; i < n; ++i) {
+			o[i + 1] = ret[i];
+		}
+		return o;
+	}
+}
+#endif
+
 template<> luabind::scope getLuaBinding<HAPI::PhantomHapticsDevice>() {
 	using namespace luabind;
 #ifdef HAVE_OPENHAPTICS
@@ -213,6 +240,22 @@ template<> luabind::scope getLuaBinding<HAPI::PhantomHapticsDevice>() {
 	    .def("getHDAPIVersion", &HAPI::PhantomHapticsDevice::getHDAPIVersion)
 	    .def("getDeviceModelType", &HAPI::PhantomHapticsDevice::getDeviceModelType)
 	    .def("getDeviceDriverVersion", &HAPI::PhantomHapticsDevice::getDeviceDriverVersion)
+	    .def("getDeviceVendor", &HAPI::PhantomHapticsDevice::getDeviceVendor)
+	    .def("getDeviceSerialNumber", &HAPI::PhantomHapticsDevice::getDeviceSerialNumber)
+	    .def("getMotorTemperatures", &getMotorTemperatures)
+	    .def("getMaxWorkspaceDimensions", &HAPI::PhantomHapticsDevice::getMaxWorkspaceDimensions, pure_out_value(_1) + pure_out_value(_2))
+	    .def("getUsableWorkspaceDimensions", &HAPI::PhantomHapticsDevice::getUsableWorkspaceDimensions, pure_out_value(_1) + pure_out_value(_2))
+	    .def("getTabletopOffset", &HAPI::PhantomHapticsDevice::getTabletopOffset)
+	    .def("getMaxForce", &HAPI::PhantomHapticsDevice::getMaxForce)
+	    .def("getMaxContinuousForce", &HAPI::PhantomHapticsDevice::getMaxContinuousForce)
+	    .def("getInputDOF", &HAPI::PhantomHapticsDevice::getInputDOF)
+	    .def("getOutputDOF", &HAPI::PhantomHapticsDevice::getOutputDOF)
+	    .def("getJointAngles", &HAPI::PhantomHapticsDevice::getJointAngles)
+	    .def("getGimbalAngles", &HAPI::PhantomHapticsDevice::getGimbalAngles)
+	    .def("needsCalibration", &HAPI::PhantomHapticsDevice::needsCalibration)
+	    .def("calibrateDevice", &HAPI::PhantomHapticsDevice::calibrateDevice)
+	    .def("hardwareForceDisabled", &HAPI::PhantomHapticsDevice::hardwareForceDisabled)
+	    .def("inCalibrationMode", &HAPI::PhantomHapticsDevice::inCalibrationMode)
 	    ;
 #else
 	return scope();
@@ -225,6 +268,22 @@ template<> luabind::scope getLuaBinding<HAPI::QuanserHapticsDevice>() {
 #ifdef HAVE_QUARC
 	return
 	    HAPIHapticsDeviceSubclass<HAPI::QuanserHapticsDevice>("QuanserHapticsDevice")
+	    .def(constructor<>())
+	    .def(constructor<std::string const&>())
+	    .def("getDeviceId", &HAPI::QuanserHapticsDevice::getDeviceId)
+	    .def("getURI", &HAPI::QuanserHapticsDevice::getURI)
+	    .def("schedule_calibration", &HAPI::QuanserHapticsDevice::schedule_calibration)
+	    .def("send_calibration", &HAPI::QuanserHapticsDevice::send_calibration)
+	    .def("do_calibration", &HAPI::QuanserHapticsDevice::do_calibration)
+	    .def("enable_amplifiers", &HAPI::QuanserHapticsDevice::enable_amplifiers)
+	    .def("enable_position_watchdog", &HAPI::QuanserHapticsDevice::enable_position_watchdog)
+	    .def("set_damping_gains", &HAPI::QuanserHapticsDevice::set_damping_gains)
+	    .def("set_stiffness_gains", &HAPI::QuanserHapticsDevice::set_stiffness_gains)
+	    .def("set_stiffness_position_setpoints", &HAPI::QuanserHapticsDevice::set_stiffness_position_setpoints)
+	    .def("is_fatal_error", &HAPI::QuanserHapticsDevice::is_fatal_error)
+	    .def("does_checksum_enable", &HAPI::QuanserHapticsDevice::does_checksum_enable)
+	    .def("does_write_timeout_enable", &HAPI::QuanserHapticsDevice::does_write_timeout_enable)
+	    .def("does_read_timeout_enable", &HAPI::QuanserHapticsDevice::does_read_timeout_enable)
 	    ;
 #else
 	return scope();
@@ -237,6 +296,9 @@ template<> luabind::scope getLuaBinding<HAPI::SimballHapticsDevice>() {
 #ifdef HAVE_SIMBALLMEDICAL_API
 	return
 	    HAPIHapticsDeviceSubclass<HAPI::SimballHapticsDevice>("SimballHapticsDevice")
+	    .def(constructor<>())
+	    .def(constructor<int>())
+	    .def("getHandleAngle", &HAPI::SimballHapticsDevice::getHandleAngle)
 	    ;
 #else
 	return scope();
