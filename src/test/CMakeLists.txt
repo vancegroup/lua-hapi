@@ -2,6 +2,7 @@ set(LUATESTS
 	class_info
 	devicelog
 	module
+	parsed_function
 	vector)
 
 set(LAUNCHER ${LUA_COMMAND})
