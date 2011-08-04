@@ -147,6 +147,22 @@ template<> luabind::scope getLuaBinding<HAPI::HaptionHapticsDevice>() {
 #endif
 }
 
+template<> luabind::scope getLuaBinding<HAPI::NiFalconHapticsDevice>() {
+	using namespace luabind;
+
+#ifdef HAVE_NIFALCONAPI
+	return
+	    HAPIHapticsDeviceSubclass<HAPI::NiFalconHapticsDevice>("NiFalconHapticsDevice")
+	    .def(constructor<>())
+	    .def(constructor<unsigned int>())
+	    .def("getDeviceIndex", &HAPI::NiFalconHapticsDevice::getDeviceIndex)
+	    .def("setDeviceIndex", &HAPI::NiFalconHapticsDevice::setDeviceIndex)
+	    ;
+#else
+	return scope();
+#endif
+}
+
 template<> luabind::scope getLuaBinding<HAPI::PhantomHapticsDevice>() {
 	using namespace luabind;
 #ifdef HAVE_OPENHAPTICS
