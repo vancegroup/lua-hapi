@@ -86,6 +86,46 @@ template<> luabind::scope getLuaBinding<HAPI::FalconHapticsDevice>() {
 #endif
 }
 
+#ifdef HAVE_DHDAPI
+namespace {
+	void waitForReset0(HAPI::ForceDimensionHapticsDevice & hd) {
+		hd.reset();
+	}
+}
+#endif
+
+template<> luabind::scope getLuaBinding<HAPI::ForceDimensionHapticsDevice>() {
+	using namespace luabind;
+
+#ifdef HAVE_DHDAPI
+	return
+	    HAPIHapticsDeviceSubclass<HAPI::ForceDimensionHapticsDevice>("ForceDimensionHapticsDevice")
+	    .def(constructor<>())
+	    .def("getDeviceId", &HAPI::ForceDimensionHapticsDevice::getDeviceId)
+	    .def("getDeviceType", &HAPI::ForceDimensionHapticsDevice::getDeviceType)
+	    .def("reset", &HAPI::ForceDimensionHapticsDevice::reset)
+	    .def("waitForReset", &HAPI::ForceDimensionHapticsDevice::waitForReset)
+	    .def("waitForReset", &waitForReset0)
+	    .def("useGravityCompensation", &HAPI::ForceDimensionHapticsDevice::useGravityCompensation)
+	    .def("setEffectorMass", &HAPI::ForceDimensionHapticsDevice::setEffectorMass)
+	    .def("useBrakes", &HAPI::ForceDimensionHapticsDevice::useBrakes)
+	    .enum_("DEVICE_TYPE")
+	    [
+	        value("DHD_DEVICE_3DOF", DHD_DEVICE_3DOF)
+	        , value("DHD_DEVICE_6DOF", DHD_DEVICE_6DOF)
+	        , value("DHD_DEVICE_OMEGA", DHD_DEVICE_OMEGA)
+	        , value("DHD_DEVICE_OMEGA3", DHD_DEVICE_OMEGA3)
+	        , value("DHD_DEVICE_OMEGA33", DHD_DEVICE_OMEGA33)
+	        , value("DHD_DEVICE_OMEGA331", DHD_DEVICE_OMEGA331)
+	        , value("DHD_DEVICE_CONTROLLER", DHD_DEVICE_CONTROLLER)
+	        , value("DHD_DEVICE_SIMULATOR", DHD_DEVICE_SIMULATOR)
+	        , value("DHD_DEVICE_CUSTOM", DHD_DEVICE_CUSTOM)
+	    ]
+	    ;
+#else
+	return scope();
+#endif
+}
 template<> luabind::scope getLuaBinding<HAPI::HaptionHapticsDevice>() {
 	using namespace luabind;
 #ifdef HAVE_VIRTUOSEAPI

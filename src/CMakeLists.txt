@@ -26,7 +26,6 @@ set(HAPI_BINDING
 	#DepthMapSurface.cpp
 	DeviceLog.cpp
 	#FeedbackBufferCollector.cpp
-	#ForceDimensionHapticsDevice.cpp
 	#FrictionSurface.cpp
 	GodObjectRenderer.cpp
 	HAPIForceEffect.cpp

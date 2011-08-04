@@ -33,6 +33,7 @@ namespace HAPI {
 	class AnyHapticsDevice;
 	class EntactHapticsDevice;
 	class FalconHapticsDevice;
+	class ForceDimensionHapticsDevice;
 	class HaptionHapticsDevice;
 	class PhantomHapticsDevice;
 }
