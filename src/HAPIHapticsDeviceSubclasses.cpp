@@ -133,6 +133,19 @@ template<> luabind::scope getLuaBinding<HAPI::ForceDimensionHapticsDevice>() {
 	return scope();
 #endif
 }
+
+template<> luabind::scope getLuaBinding<HAPI::HaptikHapticsDevice>() {
+	using namespace luabind;
+
+#ifdef HAVE_HAPTIK_LIBRARY
+	return
+	    HAPIHapticsDeviceSubclass<HAPI::HaptikHapticsDevice>("HaptikHapticsDevice")
+	    ;
+#else
+	return scope();
+#endif
+}
+
 template<> luabind::scope getLuaBinding<HAPI::HaptionHapticsDevice>() {
 	using namespace luabind;
 #ifdef HAVE_VIRTUOSEAPI
@@ -141,6 +154,18 @@ template<> luabind::scope getLuaBinding<HAPI::HaptionHapticsDevice>() {
 	    .def(constructor<>())
 	    .def(constructor<std::string const&>())
 	    .def("getIpAddress", &HAPI::HaptionHapticsDevice::getIpAddress)
+	    ;
+#else
+	return scope();
+#endif
+}
+
+template<> luabind::scope getLuaBinding<HAPI::MLHIHapticsDevice>() {
+	using namespace luabind;
+
+#ifdef HAVE_MLHI
+	return
+	    HAPIHapticsDeviceSubclass<HAPI::MLHIHapticsDevice>("MLHIHapticsDevice")
 	    ;
 #else
 	return scope();
@@ -175,6 +200,30 @@ template<> luabind::scope getLuaBinding<HAPI::PhantomHapticsDevice>() {
 	    .def("getHDAPIVersion", &HAPI::PhantomHapticsDevice::getHDAPIVersion)
 	    .def("getDeviceModelType", &HAPI::PhantomHapticsDevice::getDeviceModelType)
 	    .def("getDeviceDriverVersion", &HAPI::PhantomHapticsDevice::getDeviceDriverVersion)
+	    ;
+#else
+	return scope();
+#endif
+}
+
+template<> luabind::scope getLuaBinding<HAPI::QuanserHapticsDevice>() {
+	using namespace luabind;
+
+#ifdef HAVE_QUARC
+	return
+	    HAPIHapticsDeviceSubclass<HAPI::QuanserHapticsDevice>("QuanserHapticsDevice")
+	    ;
+#else
+	return scope();
+#endif
+}
+
+template<> luabind::scope getLuaBinding<HAPI::SimballHapticsDevice>() {
+	using namespace luabind;
+
+#ifdef HAVE_SIMBALLMEDICAL_API
+	return
+	    HAPIHapticsDeviceSubclass<HAPI::SimballHapticsDevice>("SimballHapticsDevice")
 	    ;
 #else
 	return scope();
