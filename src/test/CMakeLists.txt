@@ -1,4 +1,5 @@
 set(LUATESTS
+	class_info
 	devicelog
 	module
 	vector)
