@@ -25,9 +25,9 @@ for _, v in ipairs(trivially_constructible) do
 		print("Class:", info.name)
 
 		assert_table(info.methods)
-		print("Methods:", #(info.methods))
-		for _, v in ipairs(info.methods) do
-			print("-", v)
+		print("Methods:")
+		for k, v in pairs(info.methods) do
+			print("-", k, v)
 		end
 
 		assert_table(info.attributes)
