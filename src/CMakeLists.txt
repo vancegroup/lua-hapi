@@ -11,6 +11,7 @@ endif()
 set(SOURCES
 	AutoRef.h
 	BindingFwd.h
+	HAPIForceEffectSubclass.h
 	LuaInclude.h
 	ModuleEntryPoint.cpp)
 
