@@ -10,9 +10,10 @@ endif()
 
 set(SOURCES
 	AutoRef.h
+	BindingFwd.h
 	ClassInfo.cpp
 	ClassInfo.h
-	BindingFwd.h
+	EnableVec3OutValues.h
 	ForwardingMacros.h
 	ForwardingMacrosUndef.h
 	HAPIForceEffectSubclass.h
