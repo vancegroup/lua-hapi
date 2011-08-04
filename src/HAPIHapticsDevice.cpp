@@ -30,44 +30,40 @@
 // - none
 
 namespace {
-	HAPI::HAPIHapticsDevice::ErrorCode initDevice0(HAPI::HAPIHapticsDevice & hd) {
-		return hd.initDevice();
+#define FORWARDER_IMPL_0(_RTYPE, _RET, _METHOD) \
+	_RTYPE _METHOD ## 0 (HAPI::HAPIHapticsDevice & hd) { \
+		_RET hd. _METHOD(); \
 	}
-	void setHapticsRenderer1(HAPI::HAPIHapticsDevice & hd, HAPI::HAPIHapticsRenderer * r) {
-		hd.setHapticsRenderer(r);
-	}
+#define VOID_FORWARDER0(_METHOD) FORWARDER_IMPL_0(void, , _METHOD)
+#define FORWARDER0(_RTYPE, _METHOD) FORWARDER_IMPL_0(_RTYPE, return, _METHOD)
 
-	HAPI::HAPIInt32 getButtonStatus0(HAPI::HAPIHapticsDevice & hd) {
-		return hd.getButtonStatus();
+#define FORWARDER_IMPL_1(_RTYPE, _RET, _METHOD, _T1) \
+	_RTYPE _METHOD ## 1 (HAPI::HAPIHapticsDevice & hd, _T1 a1) { \
+		_RET hd. _METHOD(a1); \
 	}
+#define VOID_FORWARDER1(_METHOD, _T1) FORWARDER_IMPL_1(void, , _METHOD, _T1)
+#define FORWARDER1(_RTYPE, _METHOD, _T1) FORWARDER_IMPL_1(_RTYPE, return, _METHOD, _T1)
 
-	bool getButtonStatus1(HAPI::HAPIHapticsDevice & hd, unsigned int button_nr) {
-		return hd.getButtonStatus(button_nr);
-	}
+	FORWARDER0(HAPI::HAPIHapticsDevice::ErrorCode, initDevice)
 
-	void addShape1(HAPI::HAPIHapticsDevice & hd, HAPI::HAPIHapticShape * a) {
-		hd.addShape(a);
-	}
+	VOID_FORWARDER1(setHapticsRenderer, HAPI::HAPIHapticsRenderer *)
 
-	void removeShape1(HAPI::HAPIHapticsDevice & hd, HAPI::HAPIHapticShape * a) {
-		hd.removeShape(a);
-	}
+	FORWARDER0(HAPI::HAPIHapticsRenderer *, getHapticsRenderer)
 
-	void clearShapes0(HAPI::HAPIHapticsDevice & hd) {
-		hd.clearShapes();
-	}
+	FORWARDER0(HAPI::HAPIInt32, getButtonStatus)
+	FORWARDER1(bool, getButtonStatus, unsigned int)
 
-	void addEffect1(HAPI::HAPIHapticsDevice & hd, HAPI::HAPIForceEffect * a) {
-		hd.addEffect(a);
-	}
+	FORWARDER0(HAPI::HAPIInt32, getLastButtonStatus)
+	FORWARDER1(bool, getLastButtonStatus, unsigned int)
 
-	void removeEffect1(HAPI::HAPIHapticsDevice & hd, HAPI::HAPIForceEffect * a) {
-		hd.removeEffect(a);
-	}
 
-	void clearEffects0(HAPI::HAPIHapticsDevice & hd) {
-		hd.clearEffects();
-	}
+	VOID_FORWARDER1(addShape, HAPI::HAPIHapticShape *)
+	VOID_FORWARDER1(removeShape, HAPI::HAPIHapticShape *)
+	VOID_FORWARDER0(clearShapes)
+
+	VOID_FORWARDER1(addEffect, HAPI::HAPIForceEffect *)
+	VOID_FORWARDER1(removeEffect, HAPI::HAPIForceEffect *)
+	VOID_FORWARDER0(clearEffects)
 }
 
 template<> luabind::scope getLuaBinding<HAPI::HAPIHapticsDevice>() {
