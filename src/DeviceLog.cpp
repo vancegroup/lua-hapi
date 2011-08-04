@@ -20,7 +20,7 @@
 
 // Internal Includes
 #include "BindingFwd.h"
-#include "AutoRef.h"
+#include "HAPIForceEffectSubclass.h"
 
 // Library/third-party includes
 #include <luabind/class.hpp>
@@ -45,7 +45,7 @@ template<> luabind::scope getLuaBinding<HAPI::DeviceLog>() {
 	using namespace luabind;
 
 	return
-	    class_<HAPI::DeviceLog, HAPI::HAPIForceEffect, H3DUtil::AutoRef<HAPI::HAPIForceEffect> >("DeviceLog")
+	    HAPIForceEffectSubclass<HAPI::DeviceLog>("DeviceLog")
 	    .scope[
 	        class_<HAPI::DeviceLog::LogTypeVector>("LogTypeVector"),
 	        def("LogTypeVector", &createLogTypeVector)
