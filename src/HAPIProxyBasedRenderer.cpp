@@ -37,7 +37,8 @@ template<> luabind::scope getLuaBinding<HAPI::HAPIProxyBasedRenderer>() {
 	using namespace luabind;
 
 	return
-	    class_<HAPI::HAPIProxyBasedRenderer, HAPI::HAPIHapticsRenderer>("HAPIProxyBasedRenderer"),
-	    getLuaBinding<HAPI::GodObjectRenderer>();
+	    class_<HAPI::HAPIProxyBasedRenderer, HAPI::HAPIHapticsRenderer>("HAPIProxyBasedRenderer")
+	    .def("getProxyPosition", &HAPI::HAPIProxyBasedRenderer::getProxyPosition)
+	    , getLuaBinding<HAPI::GodObjectRenderer>();
 }
 
