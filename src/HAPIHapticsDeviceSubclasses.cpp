@@ -17,21 +17,66 @@
 //    (See accompanying file LICENSE_1_0.txt or copy at
 //          http://www.boost.org/LICENSE_1_0.txt)
 
-
 // Internal Includes
 #include "BindingFwd.h"
-#include "HAPIHapticsDeviceSubclass.h"
 
 // Library/third-party includes
 #include <luabind/class.hpp>
+#include <luabind/out_value_policy.hpp>
 
+#include <HAPI/AnyHapticsDevice.h>
+#include <HAPI/EntactHapticsDevice.h>
+#include <HAPI/HaptionHapticsDevice.h>
 #include <HAPI/PhantomHapticsDevice.h>
 
 // Standard includes
 // - none
 
 namespace HAPI {
+	class AnyHapticsDevice;
+	class EntactHapticsDevice;
+	class HaptionHapticsDevice;
 	class PhantomHapticsDevice;
+}
+
+template<typename T>
+struct HAPIHapticsDeviceSubclass : luabind::class_<T, HAPI::HAPIHapticsDevice> {
+	HAPIHapticsDeviceSubclass(const char * name)
+		: luabind::class_<T, HAPI::HAPIHapticsDevice>(name)
+	{}
+};
+template<> luabind::scope getLuaBinding<HAPI::AnyHapticsDevice>() {
+	using namespace luabind;
+
+	return
+	    HAPIHapticsDeviceSubclass<HAPI::AnyHapticsDevice>("AnyHapticsDevice")
+	    .def(constructor<>());
+}
+
+template<> luabind::scope getLuaBinding<HAPI::EntactHapticsDevice>() {
+	using namespace luabind;
+#ifdef HAVE_ENTACTAPI
+	return
+	    HAPIHapticsDeviceSubclass<HAPI::EntactHapticsDevice>("EntactHapticsDevice")
+	    /// @todo UNIMPLEMENTED STUB
+	    ;
+#else
+	return scope();
+#endif
+}
+
+template<> luabind::scope getLuaBinding<HAPI::HaptionHapticsDevice>() {
+	using namespace luabind;
+#ifdef HAVE_VIRTUOSEAPI
+	return
+	    HAPIHapticsDeviceSubclass<HAPI::HaptionHapticsDevice>("HaptionHapticsDevice")
+	    .def(constructor<>())
+	    .def(constructor<std::string const&>())
+	    .def("getIpAddress", &HAPI::HaptionHapticsDevice::getIpAddress)
+	    ;
+#else
+	return scope();
+#endif
 }
 
 template<> luabind::scope getLuaBinding<HAPI::PhantomHapticsDevice>() {
@@ -51,4 +96,3 @@ template<> luabind::scope getLuaBinding<HAPI::PhantomHapticsDevice>() {
 	return scope();
 #endif
 }
-

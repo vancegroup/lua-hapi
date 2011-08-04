@@ -12,7 +12,6 @@ set(SOURCES
 	AutoRef.h
 	BindingFwd.h
 	HAPIForceEffectSubclass.h
-	HAPIHapticsDeviceSubclass.h
 	LuaInclude.h
 	LuaInterface.h
 	ModuleEntryPoint.cpp)
@@ -22,11 +21,9 @@ set(API
 	LuaInterface.h)
 
 set(HAPI_BINDING
-	AnyHapticsDevice.cpp
+	HAPIHapticsDeviceSubclasses.cpp
 	#DepthMapSurface.cpp
 	DeviceLog.cpp
-	#EntactHapticsDevice.cpp
-	#FalconHapticsDevice.cpp
 	#FeedbackBufferCollector.cpp
 	#ForceDimensionHapticsDevice.cpp
 	#FrictionSurface.cpp
@@ -60,14 +57,11 @@ set(HAPI_BINDING
 	#HapticTriangleTree.cpp
 	HapticViscosity.cpp
 	#HaptikHapticsDevice.cpp
-	HaptionHapticsDevice.cpp
 	#HLThread.cpp
 	#ImageInterfaceObject.cpp
 	#IntersectionInfo.cpp
 	#MLHIHapticsDevice.cpp
-	#NiFalconHapticsDevice.cpp
 	#ParsedFunction.cpp
-	PhantomHapticsDevice.cpp
 	#PlaneConstraint.cpp
 	#QuanserHapticsDevice.cpp
 	#RuspiniRenderer.cpp
