@@ -29,42 +29,30 @@
 // Standard includes
 // - none
 
-namespace {
-#define FORWARDER_IMPL_0(_RTYPE, _RET, _METHOD) \
-	_RTYPE _METHOD ## 0 (HAPI::HAPIHapticsDevice & hd) { \
-		_RET hd. _METHOD(); \
-	}
-#define VOID_FORWARDER0(_METHOD) FORWARDER_IMPL_0(void, , _METHOD)
-#define FORWARDER0(_RTYPE, _METHOD) FORWARDER_IMPL_0(_RTYPE, return, _METHOD)
+#define FORWARDING_OBJECT_TYPE HAPI::HAPIHapticsDevice
+#include "ForwardingMacros.h"
 
-#define FORWARDER_IMPL_1(_RTYPE, _RET, _METHOD, _T1) \
-	_RTYPE _METHOD ## 1 (HAPI::HAPIHapticsDevice & hd, _T1 a1) { \
-		_RET hd. _METHOD(a1); \
-	}
-#define VOID_FORWARDER1(_METHOD, _T1) FORWARDER_IMPL_1(void, , _METHOD, _T1)
-#define FORWARDER1(_RTYPE, _METHOD, _T1) FORWARDER_IMPL_1(_RTYPE, return, _METHOD, _T1)
+FORWARDER0(HAPI::HAPIHapticsDevice::ErrorCode, initDevice)
 
-	FORWARDER0(HAPI::HAPIHapticsDevice::ErrorCode, initDevice)
+VOID_FORWARDER1(setHapticsRenderer, HAPI::HAPIHapticsRenderer *)
 
-	VOID_FORWARDER1(setHapticsRenderer, HAPI::HAPIHapticsRenderer *)
+FORWARDER0(HAPI::HAPIHapticsRenderer *, getHapticsRenderer)
 
-	FORWARDER0(HAPI::HAPIHapticsRenderer *, getHapticsRenderer)
+FORWARDER0(HAPI::HAPIInt32, getButtonStatus)
+FORWARDER1(bool, getButtonStatus, unsigned int)
 
-	FORWARDER0(HAPI::HAPIInt32, getButtonStatus)
-	FORWARDER1(bool, getButtonStatus, unsigned int)
+FORWARDER0(HAPI::HAPIInt32, getLastButtonStatus)
+FORWARDER1(bool, getLastButtonStatus, unsigned int)
 
-	FORWARDER0(HAPI::HAPIInt32, getLastButtonStatus)
-	FORWARDER1(bool, getLastButtonStatus, unsigned int)
+VOID_FORWARDER1(addShape, HAPI::HAPIHapticShape *)
+VOID_FORWARDER1(removeShape, HAPI::HAPIHapticShape *)
+VOID_FORWARDER0(clearShapes)
 
+VOID_FORWARDER1(addEffect, HAPI::HAPIForceEffect *)
+VOID_FORWARDER1(removeEffect, HAPI::HAPIForceEffect *)
+VOID_FORWARDER0(clearEffects)
 
-	VOID_FORWARDER1(addShape, HAPI::HAPIHapticShape *)
-	VOID_FORWARDER1(removeShape, HAPI::HAPIHapticShape *)
-	VOID_FORWARDER0(clearShapes)
-
-	VOID_FORWARDER1(addEffect, HAPI::HAPIForceEffect *)
-	VOID_FORWARDER1(removeEffect, HAPI::HAPIForceEffect *)
-	VOID_FORWARDER0(clearEffects)
-}
+#include "ForwardingMacrosUndef.h"
 
 template<> luabind::scope getLuaBinding<HAPI::HAPIHapticsDevice>() {
 	using namespace luabind;

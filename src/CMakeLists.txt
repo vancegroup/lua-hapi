@@ -13,6 +13,8 @@ set(SOURCES
 	ClassInfo.cpp
 	ClassInfo.h
 	BindingFwd.h
+	ForwardingMacros.h
+	ForwardingMacrosUndef.h
 	HAPIForceEffectSubclass.h
 	LuaInclude.h
 	LuaInterface.h
