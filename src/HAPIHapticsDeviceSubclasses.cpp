@@ -19,6 +19,7 @@
 
 // Internal Includes
 #include "HAPIHapticsDeviceSubclasses.h"
+#include "EnableVec3OutValues.h"
 #include "BindingFwd.h"
 
 // Library/third-party includes
