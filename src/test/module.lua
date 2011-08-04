@@ -3,7 +3,7 @@ require("lunatest")
 function test_loads()
 	require("luahapi")
 	assert_table(HAPI)
-	print("Constructible Types:")
+	print("HAPI namespace members:")
 	for k, v in pairs(HAPI) do
 		print("HAPI." .. k)
 	end
