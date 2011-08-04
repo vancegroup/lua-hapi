@@ -1,5 +1,6 @@
 /** @file
-	@brief Header
+	@brief Header that includes the basic Lua header - should be the
+	only header including <lua.h> directly.
 
 	@date 2011
 

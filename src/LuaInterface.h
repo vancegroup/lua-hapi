@@ -1,5 +1,5 @@
 /** @file
-	@brief Header
+	@brief Header defining macros for extern "C" and __declspec as needed.
 
 	@date 2011
 

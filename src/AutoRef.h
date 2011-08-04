@@ -1,5 +1,6 @@
 /** @file
-	@brief Header
+	@brief Includes <H3DUtil/AutoRef.h> and provides get_pointer overload
+	for AutoRef<T> for use by luabind
 
 	@date 2011
 

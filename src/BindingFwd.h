@@ -1,5 +1,5 @@
 /** @file
-	@brief Header
+	@brief Forward declaration header for templated lua binding function
 
 	@date 2011
 
