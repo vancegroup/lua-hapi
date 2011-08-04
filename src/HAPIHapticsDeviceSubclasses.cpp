@@ -27,8 +27,15 @@
 
 #include <HAPI/AnyHapticsDevice.h>
 #include <HAPI/EntactHapticsDevice.h>
+#include <HAPI/FalconHapticsDevice.h>
+#include <HAPI/ForceDimensionHapticsDevice.h>
+#include <HAPI/HaptikHapticsDevice.h>
 #include <HAPI/HaptionHapticsDevice.h>
+#include <HAPI/MLHIHapticsDevice.h>
+#include <HAPI/NiFalconHapticsDevice.h>
 #include <HAPI/PhantomHapticsDevice.h>
+#include <HAPI/QuanserHapticsDevice.h>
+#include <HAPI/SimballHapticsDevice.h>
 
 // Standard includes
 // - none
