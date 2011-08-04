@@ -22,6 +22,7 @@ set(API
 
 set(HAPI_BINDING
 	HAPIHapticsDeviceSubclasses.cpp
+	HAPIHapticsDeviceSubclasses.h
 	#DepthMapSurface.cpp
 	DeviceLog.cpp
 	#FeedbackBufferCollector.cpp

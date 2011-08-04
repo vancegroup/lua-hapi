@@ -18,6 +18,7 @@
 //          http://www.boost.org/LICENSE_1_0.txt)
 
 // Internal Includes
+#include "HAPIHapticsDeviceSubclasses.h"
 #include "BindingFwd.h"
 
 // Library/third-party includes
@@ -31,13 +32,6 @@
 
 // Standard includes
 // - none
-
-namespace HAPI {
-	class AnyHapticsDevice;
-	class EntactHapticsDevice;
-	class HaptionHapticsDevice;
-	class PhantomHapticsDevice;
-}
 
 template<typename T>
 struct HAPIHapticsDeviceSubclass : luabind::class_<T, HAPI::HAPIHapticsDevice> {
