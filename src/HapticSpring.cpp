@@ -40,8 +40,11 @@ template<> luabind::scope getLuaBinding<HAPI::HapticSpring>() {
 	    .def(constructor<const HAPI::Vec3 &, HAPI::HAPIFloat, HAPI::HAPIFloat>())
 	    .def("setPosition", &HAPI::HapticSpring::setPosition)
 	    .def("setDamping", &HAPI::HapticSpring::setDamping)
-	    .def("setDamping", &HAPI::HapticSpring::setDamping)
-	    .def("setSpringConstant", &HAPI::HapticSpring::setDamping)
+	    .def("setSpringConstant", &HAPI::HapticSpring::setSpringConstant)
+	    .def("getPosition", &HAPI::HapticSpring::getPosition)
+	    .def("getDamping", &HAPI::HapticSpring::getDamping)
+	    .def("getSpringConstant", &HAPI::HapticSpring::getSpringConstant)
+	    .def("getLatestForce", &HAPI::HapticSpring::getLatestForce)
 	    ;
 }
 
