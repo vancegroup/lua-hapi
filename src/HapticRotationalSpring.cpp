@@ -20,6 +20,7 @@
 
 // Internal Includes
 #include "BindingFwd.h"
+#include "HAPIForceEffectSubclass.h"
 
 // Library/third-party includes
 #include <luabind/class.hpp>
@@ -33,8 +34,17 @@ template<> luabind::scope getLuaBinding<HAPI::HapticRotationalSpring>() {
 	using namespace luabind;
 
 	return
-	    class_<HAPI::HapticRotationalSpring>("HapticRotationalSpring")
-	    /// @todo UNIMPLEMENTED STUB
+	    HAPIForceEffectSubclass<HAPI::HapticRotationalSpring>("HapticRotationalSpring")
+	    .def(constructor<>())
+	    .def(constructor<HAPI::Vec3 const&, HAPI::HAPIFloat>())
+	    .def(constructor<HAPI::Vec3 const&, HAPI::HAPIFloat, HAPI::HAPIFloat>())
+	    .def("setDesiredAxis", &HAPI::HapticRotationalSpring::setDesiredAxis)
+	    .def("setDamping", &HAPI::HapticRotationalSpring::setDamping)
+	    .def("setSpringConstant", &HAPI::HapticRotationalSpring::setSpringConstant)
+	    .def("getDesiredAxis", &HAPI::HapticRotationalSpring::getDesiredAxis)
+	    .def("getDamping", &HAPI::HapticRotationalSpring::getDamping)
+	    .def("getSpringConstant", &HAPI::HapticRotationalSpring::getSpringConstant)
+	    .def("getLatestTorque", &HAPI::HapticRotationalSpring::getLatestTorque)
 	    ;
 }
 

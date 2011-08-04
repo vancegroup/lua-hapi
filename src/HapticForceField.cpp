@@ -20,6 +20,7 @@
 
 // Internal Includes
 #include "BindingFwd.h"
+#include "HAPIForceEffectSubclass.h"
 
 // Library/third-party includes
 #include <luabind/class.hpp>
@@ -33,8 +34,9 @@ template<> luabind::scope getLuaBinding<HAPI::HapticForceField>() {
 	using namespace luabind;
 
 	return
-	    class_<HAPI::HapticForceField>("HapticForceField")
-	    /// @todo UNIMPLEMENTED STUB
+	    HAPIForceEffectSubclass<HAPI::HapticForceField>("HapticForceField")
+	    .def(constructor<HAPI::Vec3 const&>())
+	    .def(constructor<HAPI::Vec3 const&, HAPI::Vec3 const&>())
 	    ;
 }
 

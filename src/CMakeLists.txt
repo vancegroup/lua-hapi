@@ -42,7 +42,7 @@ set(HAPI_BINDING
 	#HAPIShapeRenderOptions.cpp
 	#HAPISurfaceObject.cpp
 	#HAPIVariableDepthSurface.cpp
-	#HapticForceField.cpp
+	HapticForceField.cpp
 	#HapticLineSet.cpp
 	#HapticMasterDevice.cpp
 	#HapticPointSet.cpp
@@ -50,14 +50,14 @@ set(HAPI_BINDING
 	#HapticPrimitive.cpp
 	#HapticPrimitiveSet.cpp
 	#HapticPrimitiveTree.cpp
-	#HapticRotationalSpring.cpp
+	HapticRotationalSpring.cpp
 	#HapticShapeConstraint.cpp
 	HapticSpring.cpp
 	#HapticTexturesSurface.cpp
 	#HapticTimeFunctionEffect.cpp
 	#HapticTriangleSet.cpp
 	#HapticTriangleTree.cpp
-	#HapticViscosity.cpp
+	HapticViscosity.cpp
 	#HaptikHapticsDevice.cpp
 	HaptionHapticsDevice.cpp
 	#HLThread.cpp
