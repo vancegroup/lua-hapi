@@ -13,6 +13,7 @@ set(SOURCES
 	BindingFwd.h
 	HAPIForceEffectSubclass.h
 	LuaInclude.h
+	LuaInterface.h
 	ModuleEntryPoint.cpp)
 
 set(API
