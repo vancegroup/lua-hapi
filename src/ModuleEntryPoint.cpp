@@ -31,9 +31,10 @@
 // - none
 
 namespace HAPI {
+	class HAPIForceEffect;
+	class HAPIFunctionObject;
 	class HAPIHapticsDevice;
 	class HAPIHapticsRenderer;
-	class HAPIForceEffect;
 }
 
 int luaopen_luahapi(lua_State *L) {
@@ -42,9 +43,10 @@ int luaopen_luahapi(lua_State *L) {
 	module(L, "HAPI")
 	[
 	    bindVector(),
+	    getLuaBinding<HAPI::HAPIForceEffect>(),
+	    getLuaBinding<HAPI::HAPIFunctionObject>(),
 	    getLuaBinding<HAPI::HAPIHapticsDevice>(),
 	    getLuaBinding<HAPI::HAPIHapticsRenderer>(),
-	    getLuaBinding<HAPI::HAPIForceEffect>(),
 
 	    scope() // trailing empty scope so we can put commas after each binding call
 	];

@@ -29,12 +29,22 @@
 // Standard includes
 // - none
 
+namespace HAPI {
+	class ParsedFunction;
+}
+
+namespace {
+	HAPI::HAPIFloat evaluate(HAPI::HAPIFunctionObject & o, HAPI::HAPIFloat val) {
+		return o.evaluate(&val);
+	}
+}
 template<> luabind::scope getLuaBinding<HAPI::HAPIFunctionObject>() {
 	using namespace luabind;
 
 	return
 	    class_<HAPI::HAPIFunctionObject>("HAPIFunctionObject")
-	    /// @todo UNIMPLEMENTED STUB
+	    .def("evaluate", &evaluate)
+	    , getLuaBinding<HAPI::ParsedFunction>()
 	    ;
 }
 

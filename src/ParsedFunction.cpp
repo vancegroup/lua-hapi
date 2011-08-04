@@ -29,12 +29,22 @@
 // Standard includes
 // - none
 
+#define FORWARDING_OBJECT_TYPE HAPI::ParsedFunction
+#include "ForwardingMacros.h"
+FORWARDER1(bool, setFunctionString, const std::string)
+#include "ForwardingMacrosUndef.h"
+
 template<> luabind::scope getLuaBinding<HAPI::ParsedFunction>() {
 	using namespace luabind;
 
 	return
-	    class_<HAPI::ParsedFunction>("ParsedFunction")
-	    /// @todo UNIMPLEMENTED STUB
+	    class_<HAPI::ParsedFunction, HAPI::HAPIFunctionObject>("ParsedFunction")
+	    .def(constructor<>())
+	    .def("setFunctionString", &HAPI::ParsedFunction::setFunctionString)
+	    .def("setFunctionString", &setFunctionString1)
+	    .def("haveValidFunction", &HAPI::ParsedFunction::haveValidFunction)
+	    .def("getFunction", &HAPI::ParsedFunction::getFunction)
+	    .def("getParams", &HAPI::ParsedFunction::getParams)
 	    ;
 }
 

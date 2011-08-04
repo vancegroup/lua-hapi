@@ -35,7 +35,7 @@ set(HAPI_BINDING
 	GodObjectRenderer.cpp
 	HAPIForceEffect.cpp
 	#HAPIFrictionSurface.cpp
-	#HAPIFunctionObject.cpp
+	HAPIFunctionObject.cpp
 	#HAPIGLShape.cpp
 	#HAPIHapticObject.cpp
 	HAPIHapticsDevice.cpp
@@ -63,7 +63,7 @@ set(HAPI_BINDING
 	#HLThread.cpp
 	#ImageInterfaceObject.cpp
 	#IntersectionInfo.cpp
-	#ParsedFunction.cpp
+	ParsedFunction.cpp
 	#PlaneConstraint.cpp
 	RuspiniRenderer.cpp
 )
