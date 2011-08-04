@@ -82,6 +82,26 @@ template<> luabind::scope getLuaBinding<HAPI::HAPIHapticsDevice>() {
 	        value("NOT_ENABLED", HAPI::HAPIHapticsDevice::NOT_ENABLED),
 	        value("FAIL", HAPI::HAPIHapticsDevice::FAIL)
 	    ]
+
+	    .enum_("DeviceState")
+	    [
+	        value("UNINITIALIZED", HAPI::HAPIHapticsDevice::UNINITIALIZED),
+	        value("INITIALIZED", HAPI::HAPIHapticsDevice::INITIALIZED),
+	        value("ENABLED", HAPI::HAPIHapticsDevice::ENABLED)
+	    ]
+
+	    .scope
+	    [
+	        class_<HAPI::HAPIHapticsDevice::DeviceValues>("DeviceValues")
+	        .def(constructor<>())
+	        .def_readwrite("force", &HAPI::HAPIHapticsDevice::DeviceValues::force)
+	        .def_readwrite("torque", &HAPI::HAPIHapticsDevice::DeviceValues::torque)
+	        .def_readwrite("position", &HAPI::HAPIHapticsDevice::DeviceValues::position)
+	        .def_readwrite("velocity", &HAPI::HAPIHapticsDevice::DeviceValues::velocity)
+	        //.def_readwrite("orientation", &HAPI::HAPIHapticsDevice::DeviceValues::orientation) /// @todo needs binding for Rotation
+	        .def_readwrite("button_status", &HAPI::HAPIHapticsDevice::DeviceValues::button_status)
+	    ]
+
 	    .def("initDevice", &HAPI::HAPIHapticsDevice::initDevice)
 	    .def("initDevice", &initDevice0)
 
@@ -90,6 +110,12 @@ template<> luabind::scope getLuaBinding<HAPI::HAPIHapticsDevice>() {
 	    .def("disableDevice", &HAPI::HAPIHapticsDevice::disableDevice)
 
 	    .def("releaseDevice", &HAPI::HAPIHapticsDevice::releaseDevice)
+
+	    .def("getLastErrorMsg", &HAPI::HAPIHapticsDevice::getLastErrorMsg)
+
+	    .def("transferObjects", &HAPI::HAPIHapticsDevice::transferObjects)
+
+	    .def("getDeviceState", &HAPI::HAPIHapticsDevice::getDeviceState)
 
 	    .def("setHapticsRenderer", &HAPI::HAPIHapticsDevice::setHapticsRenderer)
 	    .def("setHapticsRenderer", &setHapticsRenderer1)
