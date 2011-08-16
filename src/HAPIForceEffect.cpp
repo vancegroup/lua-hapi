@@ -35,6 +35,7 @@ namespace HAPI {
 	class HapticSpring;
 	class HapticForceField;
 	class HapticRotationalSpring;
+	class HapticPositionFunctionEffect;
 	class HapticViscosity;
 }
 
@@ -45,9 +46,7 @@ template<> luabind::scope getLuaBinding<HAPI::HAPIForceEffect>() {
 	    class_<HAPI::HAPIForceEffect, H3DUtil::AutoRef<HAPI::HAPIForceEffect> >("HAPIForceEffect")
 	    , getLuaBinding<HAPI::DeviceLog>()
 	    , getLuaBinding<HAPI::HapticForceField>()
-	    /*
-	    , getLuaBinding<HAPI::PositionFunctionEffect>()
-	    */
+	    , getLuaBinding<HAPI::HapticPositionFunctionEffect>()
 	    , getLuaBinding<HAPI::HapticRotationalSpring>()
 	    /*
 	    , getLuaBinding<HAPI::HapticShapeConstraint>()

@@ -48,7 +48,7 @@ set(HAPI_BINDING
 	HapticForceField.cpp
 	#HapticLineSet.cpp
 	#HapticPointSet.cpp
-	#HapticPositionFunctionEffect.cpp
+	HapticPositionFunctionEffect.cpp
 	#HapticPrimitive.cpp
 	#HapticPrimitiveSet.cpp
 	#HapticPrimitiveTree.cpp

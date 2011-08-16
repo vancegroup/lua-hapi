@@ -20,21 +20,27 @@
 
 // Internal Includes
 #include "BindingFwd.h"
+#include "HAPIForceEffectSubclass.h"
 
 // Library/third-party includes
 #include <luabind/class.hpp>
+#include <luabind/adopt_policy.hpp>
 
 #include <HAPI/HapticPositionFunctionEffect.h>
 
 // Standard includes
 // - none
 
+namespace HAPI {
+	class HAPIFunctionObject;
+}
+
 template<> luabind::scope getLuaBinding<HAPI::HapticPositionFunctionEffect>() {
 	using namespace luabind;
 
 	return
-	    class_<HAPI::HapticPositionFunctionEffect>("HapticPositionFunctionEffect")
-	    /// @todo UNIMPLEMENTED STUB
+	    HAPIForceEffectSubclass<HAPI::HapticPositionFunctionEffect>("HapticPositionFunctionEffect")
+	    .def(constructor<HAPI::HAPIFunctionObject *, HAPI::HAPIFunctionObject *, HAPI::HAPIFunctionObject *>(), adopt(_2) + adopt(_3) + adopt(_4))
 	    ;
 }
 
