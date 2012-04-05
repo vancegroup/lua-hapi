@@ -9,7 +9,7 @@
 	url = git://github.com/silentbicycle/lunatest.git
 [submodule "submodules/pthreads-win32-cmakebuild"]
 	path = submodules/pthreads-win32-cmakebuild
-	url = git://github.com/vance-group/pthreads-win32-cmakebuild.git
+	url = git://github.com/vancegroup/pthreads-win32-cmakebuild.git
 [submodule "submodules/pthreads-win32"]
 	path = submodules/pthreads-win32
-	url = git://github.com/vance-group/pthreads-win32.git
+	url = git://github.com/vancegroup/pthreads-win32.git
