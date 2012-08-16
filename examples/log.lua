@@ -18,7 +18,7 @@ logger = HAPI.DeviceLog("examplelog.txt", HAPI.DeviceLog.LogTypeVector{HAPI.Devi
 print("Adding effect to device")
 hd:addEffect(logger)
 
-print("Transfering objects")
+print("Transferring objects")
 hd:transferObjects()
 
 print("Press enter to stop logging and shut down")
@@ -27,7 +27,7 @@ io.stdin:read()
 print("Removing effect")
 hd:removeEffect(logger)
 
-print("Transfering objects")
+print("Transferring objects")
 hd:transferObjects()
 
 print("Disabling device")

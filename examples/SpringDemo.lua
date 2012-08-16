@@ -37,7 +37,7 @@ print("Adding effect to device")
 hd:addEffect(spring_effect)
 pause()
 
-print("Transfering objects")
+print("Transferring objects")
 hd:transferObjects()
 pause()
 
@@ -48,7 +48,7 @@ print("Removing effect")
 hd:removeEffect(spring_effect)
 pause()
 
-print("Transfering objects")
+print("Transferring objects")
 hd:transferObjects()
 pause()
 
