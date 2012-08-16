@@ -12,4 +12,4 @@
 	url = git://github.com/vancegroup/pthreads-win32-cmakebuild.git
 [submodule "submodules/pthreads-win32"]
 	path = submodules/pthreads-win32
-	url = git://github.com/vancegroup/pthreads-win32.git
+	url = git://github.com/vancegroup-mirrors/pthreads-win32.git
